@@ -1,9 +1,11 @@
 <script>
-	const key = '6Ldvac0ZAAAAAFmtvwilkJ3MOD4IGou9KjhRglIo';
+	import { RECAPTCHA_KEY } from 'src/variables';
 
-	function handleSubmit(e) {
+	function handleSendEmail() {
+		// @ts-ignore
 		grecaptcha.ready(() => {
-			grecaptcha.execute(key, { action: 'submit' }).then(() => {
+			// @ts-ignore
+			grecaptcha.execute(RECAPTCHA_KEY, { action: 'submit' }).then(() => {
 				window.open('mailto:dinisrosas@gmail.com', '_self');
 			});
 		});
@@ -11,7 +13,7 @@
 </script>
 
 <svelte:head>
-	<script src="https://www.google.com/recaptcha/api.js?render={key}" async defer></script>
+	<script src="https://www.google.com/recaptcha/api.js?render={RECAPTCHA_KEY}" async defer></script>
 </svelte:head>
 
 <div class="container">
@@ -32,7 +34,7 @@
 
 	<hr />
 
-	<button on:click={handleSubmit}
+	<button on:click={handleSendEmail}
 		>Send us an email <svg
 			xmlns="http://www.w3.org/2000/svg"
 			aria-hidden="true"
