@@ -5,9 +5,9 @@
 		url: 'https://annna.pt',
 		email: 'dinisrosas@gmail.com',
 		description:
-			"Somos um estúdio de software independente com sede em Matosinhos, Portugal e contruímos soluções simples, modernas e elegantes para problemas sofisticados.",
+			"We are a creative independent software studio based in Matosinhos, Portugal. We develop modern and elegant mobile solutions for sofisticated problems.",
 		keywords:
-			'aplicacões móveis porto, aplicações mobile porto, desenvolvimento de websites porto, otimização ranking google'
+			'aplicações móveis porto, aplicações mobile porto, aplicações telemóvel porto, desenvolvimento de aplicações porto, aplicações android porto, aplicações ios porto'
 	};
 </script>
 
