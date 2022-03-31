@@ -23,7 +23,7 @@
 	<p>
 		* We truly focus on building great products so we only work with one client at a time what makes
 		our availability very limited. We are <strong class="unavailable">currently unavailable</strong>
-		but you can send us your proposal nonetheless and we will work with you as soon as we can.
+		but you can send us your proposal nonetheless and we will work with you as soon as possible.
 	</p>
 
 	<hr />
