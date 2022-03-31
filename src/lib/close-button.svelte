@@ -15,18 +15,28 @@
 </div>
 
 <style>
-  div {
-    cursor: pointer;
-    background-color: white;
-    height: 1.75rem;
-    width: 1.75rem;
-    display: grid;
-    place-content: center;
-    border-radius: 6px;
-    box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
-  }
+	:root {
+		--size: 2rem;
+	}
 
-  div:hover {
-    background-color: gainsboro;
-  }
+	div {
+		cursor: pointer;
+		background-color: white;
+		height: var(--size);
+		width: var(--size);
+		display: grid;
+		place-content: center;
+		border-radius: 6px;
+		box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+	}
+
+	div:hover {
+		background-color: gainsboro;
+	}
+
+	@media screen and (min-width: 640px) {
+		:root {
+			--size: 1.75rem;
+		}
+	}
 </style>

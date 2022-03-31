@@ -26,8 +26,9 @@
 		<img
 			src="portfolio.png"
 			alt="Porfolio mockups"
-			width="520px"
-			height="520px"
+			width="100%"
+			height="auto"
+      style="max-width: 520px;"
 			on:click|stopPropagation
 		/>
 		<div class="actions">
