@@ -24,7 +24,7 @@
 {#if shown}
 	<div id="overlay" class="portfolio" transition:fade on:click={hide}>
 		<img
-			src="portfolio.png"
+			src="portfolio.webp"
 			alt="Porfolio mockups"
 			width="100%"
 			height="auto"
