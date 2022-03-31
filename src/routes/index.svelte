@@ -1,27 +1,21 @@
 <script>
-	import { RECAPTCHA_KEY } from 'src/variables';
+	import Portfolio from '$lib/portfolio.svelte';
+
+	let show;
 
 	function handleSendEmail() {
-		// @ts-ignore
-		grecaptcha.ready(() => {
-			// @ts-ignore
-			grecaptcha.execute(RECAPTCHA_KEY, { action: 'submit' }).then(() => {
-				window.open('mailto:dinisrosas@gmail.com', '_self');
-			});
-		});
+		window.open('mailto:dinisrosas@gmail.com', '_self');
 	}
 </script>
 
-<svelte:head>
-	<script src="https://www.google.com/recaptcha/api.js?render={RECAPTCHA_KEY}" async defer></script>
-</svelte:head>
+<Portfolio bind:show />
 
 <div class="container">
 	<img src="/logo.svg" alt="Annna logo" width="105px" height="23.25px" />
 
 	<h3>
-		We are a creative independent software studio based in Matosinhos, Portugal. We develop modern
-		and elegant <u>mobile solutions</u> for sofisticated problems.
+		We are a creative independent software studio based in Porto, Portugal. We build modern and
+		elegant <u class="solutions" on:click={show}>mobile app</u> solutions for sofisticated problems.
 	</h3>
 
 	<hr />
@@ -29,7 +23,7 @@
 	<p>
 		* We truly focus on building great products so we only work with one client at a time what makes
 		our availability very limited. We are <strong class="unavailable">currently unavailable</strong>
-		but you can send us your proposal nonetheless.
+		but you can send us your proposal nonetheless and we will work with you as soon as we can.
 	</p>
 
 	<hr />
@@ -73,15 +67,19 @@
 
 	.container p {
 		color: #999;
-		font-size: 0.9rem;
+		font-size: 0.85rem;
 	}
 
 	.unavailable {
-		color: #f00;
+		color: var(--color-danger);
 	}
 
 	button {
 		margin-top: 0.75rem;
 		align-self: flex-end;
+	}
+
+	.solutions {
+		cursor: pointer;
 	}
 </style>
