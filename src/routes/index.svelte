@@ -28,7 +28,7 @@
 
 	<hr />
 
-	<button class="btn-primary" on:click={handleSendEmail}
+	<button class="btn-primary"  on:click={handleSendEmail}
 		>Send us an email <svg
 			xmlns="http://www.w3.org/2000/svg"
 			aria-hidden="true"
