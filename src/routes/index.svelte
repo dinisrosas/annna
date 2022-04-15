@@ -6,6 +6,8 @@
 	onMount(() => {
 		gsap.registerPlugin(ScrollTrigger);
 
+		gsap.set('.mockups', { visibility: 'visible' });
+
 		gsap.from('#mockup-1', {
 			scrollTrigger: '#mockup-1',
 			duration: 1,
@@ -111,6 +113,7 @@
 		display: flex;
 		align-items: center;
 		justify-content: center;
+		visibility: hidden;
 	}
 
 	#mockup-1,
