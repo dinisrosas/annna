@@ -1,4 +1,4 @@
-<script>
+<script lang="ts">
 	import gsap from 'gsap';
 	import ScrollTrigger from 'gsap/dist/ScrollTrigger.js';
 	import { onMount } from 'svelte';
@@ -14,24 +14,22 @@
 			duration: 0.4,
 			y: 15,
 			opacity: 0,
-			ease: 'ease',
-			stagger: {
-				each: 0.1
-			}
+			ease: 'power2.out',
+			stagger: 0.06,
 		});
 
 		gsap.from('#mockup-1', {
 			scrollTrigger: '#mockup-1',
-			duration: 1,
-			x: '50%',
-			ease: 'ease'
+			duration: 1.1,
+			x: '70%',
+			ease: 'power3.out'
 		});
 
 		gsap.from('#mockup-2', {
 			scrollTrigger: '#mockup-2',
-			duration: 1.1,
+			duration: 1,
 			x: '25%',
-			ease: 'ease'
+			ease: 'power3.out'
 		});
 	});
 </script>
@@ -113,7 +111,7 @@
 
 	a {
 		float: left;
-		margin-top: 1.25rem;
+		margin-top: 1rem;
 	}
 
 	.unavailable {
