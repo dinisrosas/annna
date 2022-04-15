@@ -1,9 +1,9 @@
 <script>
 	import gsap from 'gsap';
+	import ScrollTrigger from 'gsap/dist/ScrollTrigger';
 	import { onMount } from 'svelte';
 
-	onMount(async () => {
-		const ScrollTrigger = (await import('gsap/ScrollTrigger')).default;
+	onMount(() => {
 		gsap.registerPlugin(ScrollTrigger);
 
 		gsap.from('#mockup-1', {
@@ -89,7 +89,7 @@
 	p {
 		font-weight: 500;
 		font-size: 0.9rem;
-		color: #666;
+		color: #999999;
 		margin: 0.5rem 0;
 	}
 
