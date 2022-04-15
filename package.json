@@ -33,8 +33,6 @@
   },
   "type": "module",
   "dependencies": {
-    "@beyonk/async-script-loader": "^2.2.1",
-    "@beyonk/svelte-google-analytics": "^2.4.0",
     "gsap": "^3.9.1"
   }
 }
