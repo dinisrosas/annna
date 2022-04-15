@@ -6,7 +6,19 @@
 	onMount(() => {
 		gsap.registerPlugin(ScrollTrigger);
 
+		gsap.set('.content', { visibility: 'visible' });
 		gsap.set('.mockups', { visibility: 'visible' });
+
+		gsap.from('.stagger', {
+			scrollTrigger: '.stagger',
+			duration: 0.4,
+			y: 15,
+			opacity: 0,
+			ease: 'ease',
+			stagger: {
+				each: 0.1
+			}
+		});
 
 		gsap.from('#mockup-1', {
 			scrollTrigger: '#mockup-1',
@@ -26,26 +38,26 @@
 
 <div class="container">
 	<div class="content">
-		<img src="/logo.svg" alt="Annna logo" width="90px" height="auto" class="logo" />
+		<img src="/logo.svg" alt="Annna logo" width="90px" height="auto" class="stagger logo" />
 
-		<h1>
+		<h1 class="stagger">
 			We are an independent software studio based in Porto, Portugal. We build modern and elegant <u
 				>mobile app</u
 			> solutions for sofisticated problems.
 		</h1>
 
-		<hr />
+		<hr class="stagger" />
 
-		<p>
+		<p class="stagger">
 			* We only work with one client at a time what makes our availability very limited. We are <strong
 				class="unavailable">currently unavailable</strong
 			>
 			but you can send us your proposal nonetheless and we will work with you as soon as possible.
 		</p>
 
-		<hr />
+		<hr class="stagger" />
 
-		<a href="mailto:dinisrosas@gmail.com" target="_blank">
+		<a href="mailto:dinisrosas@gmail.com" target="_blank" class="stagger">
 			<button
 				><svg
 					xmlns="http://www.w3.org/2000/svg"
@@ -78,6 +90,10 @@
 		min-width: 100%;
 		gap: 4rem;
 		padding: 5rem 2rem 3rem;
+	}
+
+	.content {
+		visibility: hidden;
 	}
 
 	h1 {
