@@ -63,12 +63,8 @@
 	</div>
 
 	<div class="mockups">
-		<div id="mockup-1">
-			<img class="mockup" src="m3.png" alt="" width="78%" />
-		</div>
-		<div id="mockup-2">
-			<img class="mockup" src="m1.png" alt="" width="80%" />
-		</div>
+		<img id="mockup-1" class="mockup" src="m3.png" alt="" />
+		<img id="mockup-2" class="mockup" src="m1.png" alt="" />
 	</div>
 </div>
 
@@ -116,12 +112,12 @@
 		justify-content: center;
 	}
 
-	.mockup {
+	#mockup-1,
+	#mockup-2 {
 		object-fit: cover;
 	}
 
 	#mockup-1 {
-		/* opacity: 0; */
 		width: 40%;
 		min-width: 190px;
 	}
@@ -130,16 +126,6 @@
 		width: 41.67%;
 		min-width: 200px;
 		margin-left: -6rem;
-	}
-
-	@media only screen and (min-width: 1024px) {
-		.mockups {
-			width: 50%;
-		}
-
-		#mockup-2 {
-			margin-left: -9rem;
-		}
 	}
 
 	@media only screen and (min-width: 768px) {
@@ -153,6 +139,17 @@
 
 		.content {
 			max-width: 480px;
+		}
+	}
+
+	@media only screen and (min-width: 1024px) {
+		.mockups {
+			width: 50%;
+			max-width: 550px;
+		}
+
+		#mockup-2 {
+			margin-left: -7rem;
 		}
 	}
 </style>
