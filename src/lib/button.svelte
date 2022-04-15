@@ -1,6 +1,6 @@
 <a href="https://xks93eskgj8.typeform.com/to/EMjpPzSq" target="_blank" class="stagger">
 	<button>
-		Submit proposal
+		Submit Proposal
 
 		<div class="icon-container">
 			<svg
@@ -19,11 +19,11 @@
 	.icon-container {
 		display: grid;
 		place-content: center;
-    background-color: rgba(2, 57, 254, 0.9);
-    color: white;
-  }
+		background-color: rgba(2, 57, 254, 0.9);
+		color: white;
+	}
 
-  a:hover .icon-container {
-    background-color: rgba(2, 57, 254, 1);
-  }
+	a:hover .icon-container {
+		background-color: rgba(2, 57, 254, 1);
+	}
 </style>
