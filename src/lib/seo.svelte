@@ -1,11 +1,10 @@
 <script>
 	const data = {
-		title: 'Annna | Software Studio',
+		title: 'Modern Mobile Apps | Annna Software Studio',
 		company_name: 'Annna',
 		url: 'https://annna.pt',
-		email: 'dinisrosas@gmail.com',
 		description:
-			"We are a creative independent software studio based in Porto, Portugal. We build modern and elegant mobile app solutions for sofisticated problems.",
+			'We are a creative independent software studio based in Porto, Portugal. We build modern and elegant mobile app solutions for sofisticated problems.',
 		keywords:
 			'aplicações móveis porto, aplicações mobile porto, aplicações telemóvel porto, desenvolvimento de aplicações porto, aplicações android porto, aplicações ios porto'
 	};

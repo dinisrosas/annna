@@ -1,85 +1,158 @@
 <script>
-	import Portfolio from '$lib/portfolio.svelte';
+	import gsap from 'gsap';
+	import { onMount } from 'svelte';
 
-	let show;
+	onMount(async () => {
+		const ScrollTrigger = (await import('gsap/ScrollTrigger')).default;
+		gsap.registerPlugin(ScrollTrigger);
 
-	function handleSendEmail() {
-		window.open('mailto:dinisrosas@gmail.com', '_self');
-	}
+		gsap.from('#mockup-1', {
+			scrollTrigger: '#mockup-1',
+			duration: 1,
+			x: '50%',
+			ease: 'ease'
+		});
+
+		gsap.from('#mockup-2', {
+			scrollTrigger: '#mockup-2',
+			duration: 1.1,
+			x: '25%',
+			ease: 'ease'
+		});
+	});
 </script>
 
-<Portfolio bind:show />
-
 <div class="container">
-	<img src="/logo.svg" alt="Annna logo" width="105px" height="23.25px" />
+	<div class="content">
+		<img src="/logo.svg" alt="Annna logo" width="90px" height="auto" class="logo" />
 
-	<h3>
-		We are a creative independent software studio based in Porto, Portugal. We build modern and
-		elegant <u class="solutions" on:click={show}>mobile app</u> solutions for sofisticated problems.
-	</h3>
+		<h1>
+			We are an independent software studio based in Porto, Portugal. We build modern and elegant <u
+				>mobile app solutions</u
+			> for sofisticated problems.
+		</h1>
 
-	<hr />
+		<hr />
 
-	<p>
-		* We truly focus on building great products so we only work with one client at a time what makes
-		our availability very limited. We are <strong class="unavailable">currently unavailable</strong>
-		but you can send us your proposal nonetheless and we will work with you as soon as possible.
-	</p>
+		<p>
+			* We only work with one client at a time what makes our availability very limited. We are <strong
+				class="unavailable">currently unavailable</strong
+			>
+			but you can send us your proposal nonetheless and we will work with you as soon as possible.
+		</p>
 
-	<hr />
+		<hr />
 
-	<button class="btn-primary"  on:click={handleSendEmail}
-		>Send us an email <svg
-			xmlns="http://www.w3.org/2000/svg"
-			aria-hidden="true"
-			role="img"
-			width="1em"
-			height="1em"
-			preserveAspectRatio="xMidYMid meet"
-			viewBox="0 0 32 32"
-			><rect x="0" y="0" width="32" height="32" fill="none" stroke="none" /><path
-				fill="currentColor"
-				d="m18 6l-1.43 1.393L24.15 15H4v2h20.15l-7.58 7.573L18 26l10-10L18 6z"
-			/></svg
-		></button
-	>
+		<a href="mailto:dinisrosas@gmail.com">
+			<button
+				><svg
+					xmlns="http://www.w3.org/2000/svg"
+					aria-hidden="true"
+					role="img"
+					width="1.25rem"
+					height="1.25rem"
+					preserveAspectRatio="xMidYMid meet"
+					viewBox="0 0 32 32"
+					><path
+						fill="currentColor"
+						d="M28 6H4a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h24a2 2 0 0 0 2-2V8a2 2 0 0 0-2-2Zm-2.2 2L16 14.78L6.2 8ZM4 24V8.91l11.43 7.91a1 1 0 0 0 1.14 0L28 8.91V24Z"
+					/></svg
+				>Send us your proposal</button
+			>
+		</a>
+	</div>
+
+	<div class="mockups">
+		<div id="mockup-1">
+			<img class="mockup" src="m3.png" alt="" width="78%" />
+		</div>
+		<div id="mockup-2">
+			<img class="mockup" src="m1.png" alt="" width="80%" />
+		</div>
+	</div>
 </div>
 
 <style>
 	.container {
 		display: flex;
 		flex-direction: column;
-		justify-content: center;
 		min-height: 100vh;
-		max-width: min(calc(100% - 2.5rem), 55ch);
-		margin: 0 auto;
+		min-width: 100%;
+		gap: 4rem;
+		padding: 5rem 2rem 3rem;
 	}
 
-	.container img {
-		align-self: center;
+	h1 {
+		font-size: 1.3rem;
+		line-height: 2rem;
+		font-weight: 700;
+		margin-bottom: 1rem;
+		letter-spacing: -0.025em;
 	}
 
-	.container h3 {
-		margin-top: 2rem;
-		margin-bottom: 0.75rem;
-		/* font-style: italic; */
-	}
-
-	.container p {
-		color: #999;
-		font-size: 0.85rem;
-	}
-
-	.unavailable {
-		color: var(--color-danger);
+	p {
+		font-weight: 500;
+		font-size: 0.9rem;
+		color: #666;
+		margin: 0.5rem 0;
 	}
 
 	button {
-		margin-top: 0.75rem;
-		align-self: flex-end;
+		margin-top: 1.25rem;
 	}
 
-	.solutions {
-		cursor: pointer;
+	.unavailable {
+		display: inline-block;
+		color: var(--color-danger);
+	}
+
+	.logo {
+		margin-bottom: 1.25rem;
+	}
+
+	.mockups {
+		display: flex;
+		align-items: center;
+		justify-content: center;
+	}
+
+	.mockup {
+		object-fit: cover;
+	}
+
+	#mockup-1 {
+		/* opacity: 0; */
+		width: 40%;
+		min-width: 190px;
+	}
+
+	#mockup-2 {
+		width: 41.67%;
+		min-width: 200px;
+		margin-left: -6rem;
+	}
+
+	@media only screen and (min-width: 1024px) {
+		.mockups {
+			width: 50%;
+		}
+
+		#mockup-2 {
+			margin-left: -9rem;
+		}
+	}
+
+	@media only screen and (min-width: 768px) {
+		.container {
+			flex-direction: row;
+			align-items: center;
+			padding-left: 4rem;
+			justify-content: center;
+			max-width: 1280px;
+		}
+
+		.content {
+			max-width: 480px;
+		}
 	}
 </style>

@@ -1,7 +1,7 @@
 <script>
-	import '../styles/global.css';
 	import Footer from '$lib/footer.svelte';
 	import SEO from '$lib/seo.svelte';
+	import '../styles/global.css';
 </script>
 
 <SEO />
