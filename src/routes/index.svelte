@@ -4,11 +4,6 @@
 	import ScrollTrigger from 'gsap/dist/ScrollTrigger.js';
 	import { onMount } from 'svelte';
 
-	function handleClick() {
-		// @ts-ignore
-		gtag('click_submit_proposal');
-	}
-
 	onMount(() => {
 		gsap.registerPlugin(ScrollTrigger);
 
@@ -61,7 +56,7 @@
 
 		<hr class="stagger" />
 
-		<div class="button stagger" on:click={handleClick}>
+		<div class="button stagger">
 			<Button />
 		</div>
 	</div>

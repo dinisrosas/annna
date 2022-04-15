@@ -1,12 +1,11 @@
 <script>
 	import Footer from '$lib/footer.svelte';
-	import Gtag from '$lib/gtag.svelte';
+	import { GoogleAnalytics } from '@beyonk/svelte-google-analytics';
 	import SEO from '$lib/seo.svelte';
 	import '../styles/global.css';
 </script>
 
-<!-- <GoogleAnalytics properties={['G-06KK95QYD3']} /> -->
-<Gtag />
+<GoogleAnalytics properties={['G-06KK95QYD3']} />
 
 <SEO />
 
