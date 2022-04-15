@@ -28,8 +28,8 @@
 
 		<h1>
 			We are an independent software studio based in Porto, Portugal. We build modern and elegant <u
-				>mobile app solutions</u
-			> for sofisticated problems.
+				>mobile app</u
+			> solutions for sofisticated problems.
 		</h1>
 
 		<hr />
@@ -43,7 +43,7 @@
 
 		<hr />
 
-		<a href="mailto:dinisrosas@gmail.com">
+		<a href="mailto:dinisrosas@gmail.com" target="_blank">
 			<button
 				><svg
 					xmlns="http://www.w3.org/2000/svg"
@@ -63,8 +63,8 @@
 	</div>
 
 	<div class="mockups">
-		<img id="mockup-1" class="mockup" src="m3.png" alt="" />
-		<img id="mockup-2" class="mockup" src="m1.png" alt="" />
+		<img id="mockup-1" class="mockup" src="m3.png" alt="airxyz ios map mockup" />
+		<img id="mockup-2" class="mockup" src="m1.png" alt="airxyz ios walkthrough mockup" />
 	</div>
 </div>
 
@@ -93,7 +93,8 @@
 		margin: 0.5rem 0;
 	}
 
-	button {
+	a {
+		float: left;
 		margin-top: 1.25rem;
 	}
 
