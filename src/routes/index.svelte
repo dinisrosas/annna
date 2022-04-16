@@ -1,5 +1,4 @@
 <script lang="ts">
-	import Button from '$lib/button.svelte';
 	import gsap from 'gsap';
 	import ScrollTrigger from 'gsap/dist/ScrollTrigger.js';
 	import { onMount } from 'svelte';
@@ -56,9 +55,27 @@
 
 		<hr class="stagger" />
 
-		<div class="button stagger">
-			<Button />
-		</div>
+		<a
+			id="submit-proposal"
+			href="https://xks93eskgj8.typeform.com/to/EMjpPzSq"
+			target="_blank"
+			class="stagger"
+		>
+			<button>
+				Submit Proposal
+
+				<div class="icon-container">
+					<svg
+						xmlns="http://www.w3.org/2000/svg"
+						aria-hidden="true"
+						width="1.1rem"
+						height="1.1rem"
+						viewBox="0 0 32 32"
+						><path fill="currentColor" d="M10 6v2h12.59L6 24.59L7.41 26L24 9.41V22h2V6H10z" /></svg
+					>
+				</div>
+			</button>
+		</a>
 	</div>
 
 	<div class="mockups">
@@ -96,9 +113,20 @@
 		margin: 0.5rem 0;
 	}
 
-	.button {
+	a {
 		float: left;
 		margin-top: 1rem;
+	}
+
+	.icon-container {
+		display: grid;
+		place-content: center;
+		background-color: rgba(2, 57, 254, 0.9);
+		color: white;
+	}
+
+	a:hover .icon-container {
+		background-color: rgba(2, 57, 254, 1);
 	}
 
 	.unavailable {
