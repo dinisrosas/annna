@@ -47,10 +47,9 @@
 		<hr class="stagger" />
 
 		<p class="stagger">
-			* We only work with one client at a time what makes our availability very limited. We are <strong
-				class="unavailable">currently unavailable</strong
-			>
-			but you can send us your proposal nonetheless and we will work with you as soon as possible.
+			* We only work with one client at a time what makes our availability very limited. We are
+			currently unavailable but you can send us your proposal nonetheless and we will work with you
+			as soon as possible.
 		</p>
 
 		<hr class="stagger" />
@@ -127,11 +126,6 @@
 
 	a:hover .icon-container {
 		background-color: rgba(2, 57, 254, 1);
-	}
-
-	.unavailable {
-		display: inline-block;
-		color: var(--color-danger);
 	}
 
 	.logo {
