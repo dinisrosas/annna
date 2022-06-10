@@ -1,16 +1,23 @@
-<script lang="ts">
+<script context="module">
 	import gsap from 'gsap';
-	import ScrollTrigger from 'gsap/dist/ScrollTrigger.js';
 	import { onMount } from 'svelte';
+	import { COMPANY_NAME } from '$lib/env';
 
+	export function load() {
+		return {
+			stuff: {
+				title: `Modern Mobile Apps | ${COMPANY_NAME}`
+			}
+		};
+	}
+</script>
+
+<script lang="ts">
 	onMount(() => {
-		gsap.registerPlugin(ScrollTrigger);
-
 		gsap.set('.content', { visibility: 'visible' });
 		gsap.set('.mockups', { visibility: 'visible' });
 
 		gsap.from('.stagger', {
-			scrollTrigger: '.stagger',
 			duration: 0.4,
 			y: 15,
 			opacity: 0,
@@ -19,16 +26,14 @@
 		});
 
 		gsap.from('#mockup-1', {
-			scrollTrigger: '#mockup-1',
 			duration: 1.1,
-			x: '70%',
+			xPercent: 70,
 			ease: 'power3.out'
 		});
 
 		gsap.from('#mockup-2', {
-			scrollTrigger: '#mockup-2',
 			duration: 1,
-			x: '25%',
+			xPercent: 25,
 			ease: 'power3.out'
 		});
 	});
@@ -36,7 +41,7 @@
 
 <div class="container">
 	<div class="content">
-		<img src="/logo.svg" alt="Annna logo" width="90px" height="auto" class="stagger logo" />
+		<img src="/logo.svg" alt="Annna" width="90px" height="auto" class="stagger logo" />
 
 		<h1 class="stagger">
 			We are an independent software studio based in Porto, Portugal. We build modern and elegant <u
@@ -78,8 +83,8 @@
 	</div>
 
 	<div class="mockups">
-		<img id="mockup-1" class="mockup" src="m3.png" alt="airxyz ios map mockup" />
-		<img id="mockup-2" class="mockup" src="m1.png" alt="airxyz ios walkthrough mockup" />
+		<img id="mockup-1" class="mockup" src="m3.png" alt="Airxyz ios map mockup" />
+		<img id="mockup-2" class="mockup" src="m1.png" alt="Airxyz ios walkthrough mockup" />
 	</div>
 </div>
 
