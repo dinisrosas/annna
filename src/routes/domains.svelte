@@ -1,6 +1,7 @@
 <script context="module">
-	export function load() {
+	export function load({ props }) {
 		return {
+			props,
 			stuff: {
 				title: 'Domains for Sale'
 			}
@@ -8,8 +9,8 @@
 	}
 </script>
 
-<script>
-	const domains = ['plu.pt', 'pena.pt'];
+<script lang="ts">
+	export let domains: string[];
 </script>
 
 <div class="container">
