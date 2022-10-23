@@ -3,7 +3,7 @@
 </script>
 
 <footer>
-	<a href="/partners">Partners</a>
+	<a href="/portfolio">Portfolio</a>
 	<p>{year} &copy; Annna. All rights reserved.</p>
 </footer>
 

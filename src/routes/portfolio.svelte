@@ -4,7 +4,7 @@
 	export function load() {
 		return {
 			stuff: {
-				title: `Partners | ${COMPANY_NAME}`
+				title: `Portfolio | ${COMPANY_NAME}`
 			}
 		};
 	}
