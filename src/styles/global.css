@@ -55,3 +55,19 @@ button.btn-primary {
 	color: #ffffff;
 	font-weight: 500;
 }
+
+table {
+	border: 1px solid #ccc;
+	border-collapse: collapse;
+	text-align: center;
+}
+
+thead {
+	background-color: #fafafa;
+}
+
+th,
+td {
+	border: 1px solid #ccc;
+	padding: 0.5rem 1rem;
+}
