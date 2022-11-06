@@ -1,40 +1,41 @@
-# create-svelte
+<a href="https://radix-ui.com" >
+  <img alt="Radix UI hero image" src="https://repository-images.githubusercontent.com/316012819/b7b19180-3f85-11eb-884c-1e19ce2f493a">
+</a>
 
-Everything you need to build a Svelte project, powered by [`create-svelte`](https://github.com/sveltejs/kit/tree/master/packages/create-svelte).
+# Radix UI website and documentation
 
-## Creating a project
+**Everything you need to build a design system, website or web app.**
 
-If you're seeing this, you've probably already done this step. Congrats!
+Components, colors, icons, templates, and an extensive design system. Free and open-source.
 
-```bash
-# create a new project in the current directory
-npm init svelte@next
+---
 
-# create a new project in my-app
-npm init svelte@next my-app
-```
+## Documentation
 
-> Note: the `@next` is temporary
+For full documentation, visit [radix-ui.com](https://radix-ui.com).
 
-## Developing
+## Contributing
 
-Once you've created a project and installed dependencies with `npm install` (or `pnpm install` or `yarn`), start a development server:
+This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
 
-```bash
-npm run dev
+## Getting Started
 
-# or start the server and open the app in a new browser tab
-npm run dev -- --open
-```
-
-## Building
-
-To create a production version of your app:
+Run the development server:
 
 ```bash
-npm run build
+yarn dev
 ```
 
-You can preview the production build with `npm run preview`.
+Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
-> To deploy your app, you may need to install an [adapter](https://kit.svelte.dev/docs/adapters) for your target environment.
+## Authors
+
+- Pedro Duarte ([@peduarte](https://twitter.com/peduarte))
+- Benoit Grelard ([@benoitgrelard](https://twitter.com/benoitgrelard)) - [WorkOS](https://workos.com)
+- Jenna Smith ([@jjenzz](https://twitter.com/jjenzz))
+- Colm Tuite ([@colmtuite](https://twitter.com/colmtuite)) - [WorkOS](https://workos.com)
+- Chance Strickland ([@chancethedev](https://twitter.com/chancethedev))
+
+---
+
+Copyright © 2022-present [WorkOS](https://workos.com).
