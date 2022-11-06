@@ -8,12 +8,12 @@ aria: https://www.w3.org/WAI/ARIA/apg/patterns/accordion
 # Accordion
 
 <Description>
-	A vertically stacked set of interactive headings that each reveal an associated section of
-	content.
+  A vertically stacked set of interactive headings that each reveal an
+  associated section of content.
 </Description>
 
 <HeroContainer>
-	<AccordionDemo />
+  <AccordionDemo />
 </HeroContainer>
 
 ```jsx hero template=Accordion
@@ -21,11 +21,11 @@ aria: https://www.w3.org/WAI/ARIA/apg/patterns/accordion
 ```
 
 <Highlights
-	features={[
-		'Full keyboard navigation.',
-		'Can expand one or multiple items.',
-		'Can be controlled or uncontrolled.'
-	]}
+  features={[
+    'Full keyboard navigation.',
+    'Can expand one or multiple items.',
+    'Can be controlled or uncontrolled.',
+  ]}
 />
 
 ## Installation
@@ -44,14 +44,14 @@ Import all parts and piece them together.
 import * as Accordion from '@radix-ui/react-accordion';
 
 () => (
-	<Accordion.Root>
-		<Accordion.Item>
-			<Accordion.Header>
-				<Accordion.Trigger />
-			</Accordion.Header>
-			<Accordion.Content />
-		</Accordion.Item>
-	</Accordion.Root>
+  <Accordion.Root>
+    <Accordion.Item>
+      <Accordion.Header>
+        <Accordion.Trigger />
+      </Accordion.Header>
+      <Accordion.Content />
+    </Accordion.Item>
+  </Accordion.Root>
 );
 ```
 
@@ -62,119 +62,126 @@ import * as Accordion from '@radix-ui/react-accordion';
 Contains all the parts of an accordion.
 
 <PropsTable
-	data={[
-		{
-			name: 'asChild',
-			required: false,
-			type: 'boolean',
-			default: 'false',
-			description:
-				'Change the component to the HTML tag or custom component of the only child. This will merge the original component props with the props of the supplied element/component and change the underlying DOM node.'
-		},
-		{
-			name: 'type',
-			required: true,
-			type: '"single" | "multiple"',
-			typeSimple: 'enum',
-			description: (
-				<span>Determines whether one or multiple items can be opened at the same time.</span>
-			)
-		},
-		{
-			name: 'value',
-			required: false,
-			type: 'string',
-			description: (
-				<span>
-					The controlled value of the item to expand when <Code>type</Code> is <Code>"single"</Code>
-					. Must be used in conjunction with <Code>onValueChange</Code>.
-				</span>
-			)
-		},
-		{
-			name: 'defaultValue',
-			required: false,
-			type: 'string',
-			description: (
-				<span>
-					The value of the item to expand when initially rendered and <Code>type</Code> is{' '}
-					<Code>"single"</Code>. Use when you do not need to control the state of the items.
-				</span>
-			)
-		},
-		{
-			name: 'onValueChange',
-			required: false,
-			type: '(value: string) => void',
-			typeSimple: 'function',
-			description: (
-				<span>
-					Event handler called when the expanded state of an item changes and <Code>type</Code> is{' '}
-					<Code>"single"</Code>.
-				</span>
-			)
-		},
-		{
-			name: 'value',
-			required: false,
-			default: '[]',
-			type: 'string[]',
-			description: (
-				<span>
-					The controlled value of the item to expand when <Code>type</Code> is{' '}
-					<Code>"multiple"</Code>. Must be used in conjunction with <Code>onValueChange</Code>.
-				</span>
-			)
-		},
-		{
-			name: 'defaultValue',
-			required: false,
-			default: '[]',
-			type: 'string[]',
-			description: (
-				<span>
-					The value of the item to expand when initially rendered when <Code>type</Code> is{' '}
-					<Code>"multiple"</Code>. Use when you do not need to control the state of the items.
-				</span>
-			)
-		},
-		{
-			name: 'onValueChange',
-			required: false,
-			type: '(value: string[]) => void',
-			typeSimple: 'function',
-			description: (
-				<span>
-					Event handler called when the expanded state of an item changes and <Code>type</Code> is{' '}
-					<Code>"multiple"</Code>.
-				</span>
-			)
-		},
-		{
-			name: 'collapsible',
-			required: false,
-			default: 'false',
-			type: 'boolean',
-			description: (
-				<span>
-					When <Code>type</Code> is <Code>"single"</Code>, allows closing content when clicking
-					trigger for an open item.
-				</span>
-			)
-		},
-		{
-			name: 'disabled',
-			required: false,
-			type: 'boolean',
-			default: 'false',
-			description: (
-				<span>
-					When <Code>true</Code>, prevents the user from interacting with the accordion and all its
-					items.
-				</span>
-			)
-		}
-	]}
+  data={[
+    {
+      name: 'asChild',
+      required: false,
+      type: 'boolean',
+      default: 'false',
+      description:
+        'Change the component to the HTML tag or custom component of the only child. This will merge the original component props with the props of the supplied element/component and change the underlying DOM node.',
+    },
+    {
+      name: 'type',
+      required: true,
+      type: '"single" | "multiple"',
+      typeSimple: 'enum',
+      description: (
+        <span>
+          Determines whether one or multiple items can be opened at the same
+          time.
+        </span>
+      ),
+    },
+    {
+      name: 'value',
+      required: false,
+      type: 'string',
+      description: (
+        <span>
+          The controlled value of the item to expand when <Code>type</Code> is{' '}
+          <Code>"single"</Code>. Must be used in conjunction with{' '}
+          <Code>onValueChange</Code>.
+        </span>
+      ),
+    },
+    {
+      name: 'defaultValue',
+      required: false,
+      type: 'string',
+      description: (
+        <span>
+          The value of the item to expand when initially rendered and{' '}
+          <Code>type</Code> is <Code>"single"</Code>. Use when you do not need
+          to control the state of the items.
+        </span>
+      ),
+    },
+    {
+      name: 'onValueChange',
+      required: false,
+      type: '(value: string) => void',
+      typeSimple: 'function',
+      description: (
+        <span>
+          Event handler called when the expanded state of an item changes and{' '}
+          <Code>type</Code> is <Code>"single"</Code>.
+        </span>
+      ),
+    },
+    {
+      name: 'value',
+      required: false,
+      default: '[]',
+      type: 'string[]',
+      description: (
+        <span>
+          The controlled value of the item to expand when <Code>type</Code> is{' '}
+          <Code>"multiple"</Code>. Must be used in conjunction with{' '}
+          <Code>onValueChange</Code>.
+        </span>
+      ),
+    },
+    {
+      name: 'defaultValue',
+      required: false,
+      default: '[]',
+      type: 'string[]',
+      description: (
+        <span>
+          The value of the item to expand when initially rendered when{' '}
+          <Code>type</Code> is <Code>"multiple"</Code>. Use when you do not need
+          to control the state of the items.
+        </span>
+      ),
+    },
+    {
+      name: 'onValueChange',
+      required: false,
+      type: '(value: string[]) => void',
+      typeSimple: 'function',
+      description: (
+        <span>
+          Event handler called when the expanded state of an item changes and{' '}
+          <Code>type</Code> is <Code>"multiple"</Code>.
+        </span>
+      ),
+    },
+    {
+      name: 'collapsible',
+      required: false,
+      default: 'false',
+      type: 'boolean',
+      description: (
+        <span>
+          When <Code>type</Code> is <Code>"single"</Code>, allows closing
+          content when clicking trigger for an open item.
+        </span>
+      ),
+    },
+    {
+      name: 'disabled',
+      required: false,
+      type: 'boolean',
+      default: 'false',
+      description: (
+        <span>
+          When <Code>true</Code>, prevents the user from interacting with the
+          accordion and all its items.
+        </span>
+      ),
+    },
+  ]}
 />
 
 ### Item
@@ -182,46 +189,47 @@ Contains all the parts of an accordion.
 Contains all the parts of a collapsible section.
 
 <PropsTable
-	data={[
-		{
-			name: 'asChild',
-			required: false,
-			type: 'boolean',
-			default: 'false',
-			description:
-				'Change the component to the HTML tag or custom component of the only child. This will merge the original component props with the props of the supplied element/component and change the underlying DOM node.'
-		},
-		{
-			name: 'disabled',
-			required: false,
-			type: 'boolean',
-			default: 'false',
-			description: (
-				<span>
-					When <Code>true</Code>, prevents the user from interacting with the item.
-				</span>
-			)
-		},
-		{
-			name: 'value',
-			required: true,
-			type: 'string',
-			description: 'A unique value for the item.'
-		}
-	]}
+  data={[
+    {
+      name: 'asChild',
+      required: false,
+      type: 'boolean',
+      default: 'false',
+      description:
+        'Change the component to the HTML tag or custom component of the only child. This will merge the original component props with the props of the supplied element/component and change the underlying DOM node.',
+    },
+    {
+      name: 'disabled',
+      required: false,
+      type: 'boolean',
+      default: 'false',
+      description: (
+        <span>
+          When <Code>true</Code>, prevents the user from interacting with the
+          item.
+        </span>
+      ),
+    },
+    {
+      name: 'value',
+      required: true,
+      type: 'string',
+      description: 'A unique value for the item.',
+    },
+  ]}
 />
 
 <DataAttributesTable
-	data={[
-		{
-			attribute: '[data-state]',
-			values: ['open', 'closed']
-		},
-		{
-			attribute: '[data-disabled]',
-			values: 'Present when disabled'
-		}
-	]}
+  data={[
+    {
+      attribute: '[data-state]',
+      values: ['open', 'closed'],
+    },
+    {
+      attribute: '[data-disabled]',
+      values: 'Present when disabled',
+    },
+  ]}
 />
 
 ### Header
@@ -229,29 +237,29 @@ Contains all the parts of a collapsible section.
 Wraps an `Accordion.Trigger`. Use the `asChild` prop to update it to the appropriate heading level for your page.
 
 <PropsTable
-	data={[
-		{
-			name: 'asChild',
-			required: false,
-			type: 'boolean',
-			default: 'false',
-			description:
-				'Change the component to the HTML tag or custom component of the only child. This will merge the original component props with the props of the supplied element/component and change the underlying DOM node.'
-		}
-	]}
+  data={[
+    {
+      name: 'asChild',
+      required: false,
+      type: 'boolean',
+      default: 'false',
+      description:
+        'Change the component to the HTML tag or custom component of the only child. This will merge the original component props with the props of the supplied element/component and change the underlying DOM node.',
+    },
+  ]}
 />
 
 <DataAttributesTable
-	data={[
-		{
-			attribute: '[data-state]',
-			values: ['open', 'closed']
-		},
-		{
-			attribute: '[data-disabled]',
-			values: 'Present when disabled'
-		}
-	]}
+  data={[
+    {
+      attribute: '[data-state]',
+      values: ['open', 'closed'],
+    },
+    {
+      attribute: '[data-disabled]',
+      values: 'Present when disabled',
+    },
+  ]}
 />
 
 ### Trigger
@@ -259,29 +267,29 @@ Wraps an `Accordion.Trigger`. Use the `asChild` prop to update it to the appropr
 Toggles the collapsed state of its associated item. It should be nested inside of an `Accordion.Header`.
 
 <PropsTable
-	data={[
-		{
-			name: 'asChild',
-			required: false,
-			type: 'boolean',
-			default: 'false',
-			description:
-				'Change the component to the HTML tag or custom component of the only child. This will merge the original component props with the props of the supplied element/component and change the underlying DOM node.'
-		}
-	]}
+  data={[
+    {
+      name: 'asChild',
+      required: false,
+      type: 'boolean',
+      default: 'false',
+      description:
+        'Change the component to the HTML tag or custom component of the only child. This will merge the original component props with the props of the supplied element/component and change the underlying DOM node.',
+    },
+  ]}
 />
 
 <DataAttributesTable
-	data={[
-		{
-			attribute: '[data-state]',
-			values: ['open', 'closed']
-		},
-		{
-			attribute: '[data-disabled]',
-			values: 'Present when disabled'
-		}
-	]}
+  data={[
+    {
+      attribute: '[data-state]',
+      values: ['open', 'closed'],
+    },
+    {
+      attribute: '[data-disabled]',
+      values: 'Present when disabled',
+    },
+  ]}
 />
 
 ### Content
@@ -289,52 +297,52 @@ Toggles the collapsed state of its associated item. It should be nested inside o
 Contains the collapsible content for an item.
 
 <PropsTable
-	data={[
-		{
-			name: 'asChild',
-			required: false,
-			type: 'boolean',
-			default: 'false',
-			description:
-				'Change the component to the HTML tag or custom component of the only child. This will merge the original component props with the props of the supplied element/component and change the underlying DOM node.'
-		},
-		{
-			name: 'forceMount',
-			type: 'boolean',
-			description: (
-				<span>
-					Used to force mounting when more control is needed. Useful when controlling animation with
-					React animation libraries.
-				</span>
-			)
-		}
-	]}
+  data={[
+    {
+      name: 'asChild',
+      required: false,
+      type: 'boolean',
+      default: 'false',
+      description:
+        'Change the component to the HTML tag or custom component of the only child. This will merge the original component props with the props of the supplied element/component and change the underlying DOM node.',
+    },
+    {
+      name: 'forceMount',
+      type: 'boolean',
+      description: (
+        <span>
+          Used to force mounting when more control is needed. Useful when
+          controlling animation with React animation libraries.
+        </span>
+      ),
+    },
+  ]}
 />
 
 <DataAttributesTable
-	data={[
-		{
-			attribute: '[data-state]',
-			values: ['open', 'closed']
-		},
-		{
-			attribute: '[data-disabled]',
-			values: 'Present when disabled'
-		}
-	]}
+  data={[
+    {
+      attribute: '[data-state]',
+      values: ['open', 'closed'],
+    },
+    {
+      attribute: '[data-disabled]',
+      values: 'Present when disabled',
+    },
+  ]}
 />
 
 <CssVariablesTable
-	data={[
-		{
-			cssVariable: '--radix-accordion-content-width',
-			description: 'The width of the content when it opens/closes'
-		},
-		{
-			cssVariable: '--radix-accordion-content-height',
-			description: 'The height of the content when it opens/closes'
-		}
-	]}
+  data={[
+    {
+      cssVariable: '--radix-accordion-content-width',
+      description: 'The width of the content when it opens/closes',
+    },
+    {
+      cssVariable: '--radix-accordion-content-height',
+      description: 'The height of the content when it opens/closes',
+    },
+  ]}
 />
 
 ## Examples
@@ -345,8 +353,8 @@ Use the `defaultValue` prop to define the open item by default.
 
 ```jsx line=1
 <Accordion.Root type="single" __defaultValue__="item-2">
-	<Accordion.Item value="item-1">…</Accordion.Item>
-	<Accordion.Item value="item-2">…</Accordion.Item>
+  <Accordion.Item value="item-1">…</Accordion.Item>
+  <Accordion.Item value="item-2">…</Accordion.Item>
 </Accordion.Root>
 ```
 
@@ -356,8 +364,8 @@ Use the `collapsible` prop to allow all items to close.
 
 ```jsx line=1
 <Accordion.Root type="single" __collapsible__>
-	<Accordion.Item value="item-1">…</Accordion.Item>
-	<Accordion.Item value="item-2">…</Accordion.Item>
+  <Accordion.Item value="item-1">…</Accordion.Item>
+  <Accordion.Item value="item-2">…</Accordion.Item>
 </Accordion.Root>
 ```
 
@@ -367,8 +375,8 @@ Set the `type` prop to `multiple` to enable opening multiple items at once.
 
 ```jsx line=1
 <Accordion.Root type="__multiple__">
-	<Accordion.Item value="item-1">…</Accordion.Item>
-	<Accordion.Item value="item-2">…</Accordion.Item>
+  <Accordion.Item value="item-1">…</Accordion.Item>
+  <Accordion.Item value="item-2">…</Accordion.Item>
 </Accordion.Root>
 ```
 
@@ -382,22 +390,22 @@ import * as Accordion from '@radix-ui/react-accordion';
 import { ChevronDownIcon } from '@radix-ui/react-icons';
 
 const AccordionChevron = styled(ChevronDownIcon, {
-	transition: 'transform 300ms',
-	'[data-state=open] &': { transform: 'rotate(180deg)' }
+  transition: 'transform 300ms',
+  '[data-state=open] &': { transform: 'rotate(180deg)' },
 });
 
 export default () => (
-	<Accordion.Root type="single">
-		<Accordion.Item value="item-1">
-			<Accordion.Header>
-				<Accordion.Trigger>
-					<span>Trigger text</span>
-					<AccordionChevron aria-hidden />
-				</Accordion.Trigger>
-			</Accordion.Header>
-			<Accordion.Content>…</Accordion.Content>
-		</Accordion.Item>
-	</Accordion.Root>
+  <Accordion.Root type="single">
+    <Accordion.Item value="item-1">
+      <Accordion.Header>
+        <Accordion.Trigger>
+          <span>Trigger text</span>
+          <AccordionChevron aria-hidden />
+        </Accordion.Trigger>
+      </Accordion.Header>
+      <Accordion.Content>…</Accordion.Content>
+    </Accordion.Item>
+  </Accordion.Root>
 );
 ```
 
@@ -410,32 +418,32 @@ import { styled, keyframes } from '@stitches/react';
 import * as Accordion from '@radix-ui/react-accordion';
 
 const open = keyframes({
-	from: { height: 0 },
-	to: { height: 'var(--radix-accordion-content-height)' }
+  from: { height: 0 },
+  to: { height: 'var(--radix-accordion-content-height)' },
 });
 
 const close = keyframes({
-	from: { height: 'var(--radix-accordion-content-height)' },
-	to: { height: 0 }
+  from: { height: 'var(--radix-accordion-content-height)' },
+  to: { height: 0 },
 });
 
 const AccordionHeader = styled(Accordion.Header, {
-	margin: 0
+  margin: 0,
 });
 
 const AccordionContent = styled(Accordion.Content, {
-	overflow: 'hidden',
-	'&[data-state="open"]': { animation: `${open} 300ms ease-out` },
-	'&[data-state="closed"]': { animation: `${close} 300ms ease-out` }
+  overflow: 'hidden',
+  '&[data-state="open"]': { animation: `${open} 300ms ease-out` },
+  '&[data-state="closed"]': { animation: `${close} 300ms ease-out` },
 });
 
 export default () => (
-	<Accordion.Root type="single">
-		<Accordion.Item value="item-1">
-			<AccordionHeader>…</AccordionHeader>
-			<AccordionContent>…</AccordionContent>
-		</Accordion.Item>
-	</Accordion.Root>
+  <Accordion.Root type="single">
+    <Accordion.Item value="item-1">
+      <AccordionHeader>…</AccordionHeader>
+      <AccordionContent>…</AccordionContent>
+    </Accordion.Item>
+  </Accordion.Root>
 );
 ```
 
@@ -446,66 +454,66 @@ Adheres to the [Accordion WAI-ARIA design pattern](https://www.w3.org/TR/wai-ari
 ### Keyboard Interactions
 
 <KeyboardTable
-	data={[
-		{
-			keys: ['Space'],
-			description: (
-				<span>
-					When focus is on an <Code>Accordion.Trigger</Code> of a collapsed section, expands the
-					section.
-				</span>
-			)
-		},
-		{
-			keys: ['Enter'],
-			description: (
-				<span>
-					When focus is on an <Code>Accordion.Trigger</Code> of a collapsed section, expands the
-					section.
-				</span>
-			)
-		},
-		{
-			keys: ['Tab'],
-			description: 'Moves focus to the next focusable element.'
-		},
-		{
-			keys: ['Shift + Tab'],
-			description: 'Moves focus to the previous focusable element.'
-		},
-		{
-			keys: ['ArrowDown'],
-			description: (
-				<span>
-					Moves focus to the next <Code>Accordion.Trigger</Code>.
-				</span>
-			)
-		},
-		{
-			keys: ['ArrowUp'],
-			description: (
-				<span>
-					Moves focus to the previous <Code>Accordion.Trigger</Code>.
-				</span>
-			)
-		},
-		{
-			keys: ['Home'],
-			description: (
-				<span>
-					When focus is on an <Code>Accordion.Trigger</Code>, moves focus to the first{' '}
-					<Code>Accordion.Trigger</Code>.
-				</span>
-			)
-		},
-		{
-			keys: ['End'],
-			description: (
-				<span>
-					When focus is on an <Code>Accordion.Trigger</Code>, moves focus to the last{' '}
-					<Code>Accordion.Trigger</Code>.
-				</span>
-			)
-		}
-	]}
+  data={[
+    {
+      keys: ['Space'],
+      description: (
+        <span>
+          When focus is on an <Code>Accordion.Trigger</Code> of a collapsed
+          section, expands the section.
+        </span>
+      ),
+    },
+    {
+      keys: ['Enter'],
+      description: (
+        <span>
+          When focus is on an <Code>Accordion.Trigger</Code> of a collapsed
+          section, expands the section.
+        </span>
+      ),
+    },
+    {
+      keys: ['Tab'],
+      description: 'Moves focus to the next focusable element.',
+    },
+    {
+      keys: ['Shift + Tab'],
+      description: 'Moves focus to the previous focusable element.',
+    },
+    {
+      keys: ['ArrowDown'],
+      description: (
+        <span>
+          Moves focus to the next <Code>Accordion.Trigger</Code>.
+        </span>
+      ),
+    },
+    {
+      keys: ['ArrowUp'],
+      description: (
+        <span>
+          Moves focus to the previous <Code>Accordion.Trigger</Code>.
+        </span>
+      ),
+    },
+    {
+      keys: ['Home'],
+      description: (
+        <span>
+          When focus is on an <Code>Accordion.Trigger</Code>, moves focus to the
+          first <Code>Accordion.Trigger</Code>.
+        </span>
+      ),
+    },
+    {
+      keys: ['End'],
+      description: (
+        <span>
+          When focus is on an <Code>Accordion.Trigger</Code>, moves focus to the
+          last <Code>Accordion.Trigger</Code>.
+        </span>
+      ),
+    },
+  ]}
 />

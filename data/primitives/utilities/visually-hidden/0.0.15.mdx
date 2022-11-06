@@ -8,7 +8,11 @@ name: visually-hidden
 
 <Description>Hides content from the screen in an accessible way.</Description>
 
-<Highlights features={['Visually hides content while preserving it for assistive technology.']} />
+<Highlights
+  features={[
+    'Visually hides content while preserving it for assistive technology.',
+  ]}
+/>
 
 ## Installation
 
@@ -37,10 +41,10 @@ import * as VisuallyHidden from '@radix-ui/react-visually-hidden';
 import { GearIcon } from '@radix-ui/react-icons';
 
 export default () => (
-	<button>
-		<GearIcon />
-		<VisuallyHidden.Root>Settings</VisuallyHidden.Root>
-	</button>
+  <button>
+    <GearIcon />
+    <VisuallyHidden.Root>Settings</VisuallyHidden.Root>
+  </button>
 );
 ```
 
@@ -51,17 +55,17 @@ export default () => (
 Anything you put inside this component will be hidden from the screen but will be announced by screen readers.
 
 <PropsTable
-	data={[
-		{
-			name: 'as',
-			required: false,
-			type: 'keyof JSX.IntrinsicElements | React.ComponentType<any>',
-			typeSimple: 'enum',
-			default: 'span',
-			description:
-				'Change the component to a different HTML tag or custom component. This will merge the original component props with the props of the supplied element/component and change the underlying DOM node.'
-		}
-	]}
+  data={[
+    {
+      name: 'as',
+      required: false,
+      type: 'keyof JSX.IntrinsicElements | React.ComponentType<any>',
+      typeSimple: 'enum',
+      default: 'span',
+      description:
+        'Change the component to a different HTML tag or custom component. This will merge the original component props with the props of the supplied element/component and change the underlying DOM node.',
+    },
+  ]}
 />
 
 ## Accessibility

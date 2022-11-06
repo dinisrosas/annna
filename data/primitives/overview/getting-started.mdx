@@ -5,7 +5,9 @@ metaDescription: A quick tutorial to get you up and running with Radix Primitive
 
 # Getting started
 
-<Description>A quick tutorial to get you up and running with Radix Primitives.</Description>
+<Description>
+  A quick tutorial to get you up and running with Radix Primitives.
+</Description>
 
 ## Implementing a Popover
 
@@ -31,7 +33,7 @@ import * as PopoverPrimitive from '@radix-ui/react-popover';
 export const Popover = PopoverPrimitive.Root;
 export const PopoverTrigger = PopoverPrimitive.Trigger;
 export const PopoverContent = styled(PopoverPrimitive.Content, {
-	// your styles
+  // your styles
 });
 ```
 
@@ -41,15 +43,19 @@ Import each of the component parts into your app, then assemble your Popover.
 
 ```jsx
 // App.tsx
-import { Popover, PopoverTrigger, PopoverContent } from 'your-components/Popover';
+import {
+  Popover,
+  PopoverTrigger,
+  PopoverContent,
+} from 'your-components/Popover';
 
 function App() {
-	return (
-		<Popover>
-			<PopoverTrigger>...</PopoverTrigger>
-			<PopoverContent>...</PopoverContent>
-		</Popover>
-	);
+  return (
+    <Popover>
+      <PopoverTrigger>...</PopoverTrigger>
+      <PopoverContent>...</PopoverContent>
+    </Popover>
+  );
 }
 ```
 
@@ -58,7 +64,7 @@ function App() {
 Here's a live and interactive demo.
 
 <Preview>
-	<PopoverDemo />
+  <PopoverDemo />
 </Preview>
 
 ```jsx collapsed template=Popover

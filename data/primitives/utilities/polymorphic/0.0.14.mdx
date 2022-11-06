@@ -9,16 +9,17 @@ name: polymorphic
 <Description>Creates strongly typed polymorphic components.</Description>
 
 <Highlights
-	features={[
-		'Typed attributes based on the `as` prop',
-		'Typed props based on the `as` prop',
-		'Typed events based on the `as` prop'
-	]}
+  features={[
+    'Typed attributes based on the `as` prop',
+    'Typed props based on the `as` prop',
+    'Typed events based on the `as` prop',
+  ]}
 />
 
 <Alert>
-	This package has been deprecated in favour of the `asChild` prop. Learn more about how to [change
-	the rendered element here](/docs/primitives/overview/styling#changing-the-rendered-element).
+  This package has been deprecated in favour of the `asChild` prop. Learn more
+  about how to [change the rendered element
+  here](/docs/primitives/overview/styling#changing-the-rendered-element).
 </Alert>
 
 ## Installation
@@ -48,14 +49,14 @@ import type * as Polymorphic from '@radix-ui/react-polymorphic';
 type PolymorphicBox = Polymorphic.ForwardRefComponent<'div', {}>;
 
 const Box = React.forwardRef(({ as: Comp = 'div', ...props }, forwardedRef) => (
-	<Comp {...props} ref={forwardedRef} />
+  <Comp {...props} ref={forwardedRef} />
 )) as PolymorphicBox;
 
 export default () => (
-	<Box>
-		<Box as="h1">This is a h1</Box>
-		<Box as="button">This is a button</Box>
-	</Box>
+  <Box>
+    <Box as="h1">This is a h1</Box>
+    <Box as="button">This is a button</Box>
+  </Box>
 );
 ```
 
@@ -129,23 +130,25 @@ import * as Dialog from '@radix-ui/react-dialog';
 import type * as Polymorphic from '@radix-ui/react-polymorphic';
 
 type PolymorphicDialogContent = Polymorphic.ForwardRefComponent<
-	Polymorphic.IntrinsicElement<typeof Dialog.Content>,
-	Polymorphic.OwnProps<typeof Dialog.Content> & {
-		size?: 'small' | 'large';
-	}
+  Polymorphic.IntrinsicElement<typeof Dialog.Content>,
+  Polymorphic.OwnProps<typeof Dialog.Content> & {
+    size?: 'small' | 'large';
+  }
 >;
 
-const DialogContent = React.forwardRef(({ size = 'small', ...props }, forwardedRef) => (
-	<Dialog.Content {...props} className={size} ref={forwardedRef} />
-)) as PolymorphicDialogContent;
+const DialogContent = React.forwardRef(
+  ({ size = 'small', ...props }, forwardedRef) => (
+    <Dialog.Content {...props} className={size} ref={forwardedRef} />
+  )
+) as PolymorphicDialogContent;
 
 export default () => (
-	<Dialog.Root>
-		<Dialog.Trigger>Open</Dialog.Trigger>
-		<Dialog.Overlay />
-		<DialogContent as="article">
-			<p>This is an article</p>
-		</DialogContent>
-	</Dialog.Root>
+  <Dialog.Root>
+    <Dialog.Trigger>Open</Dialog.Trigger>
+    <Dialog.Overlay />
+    <DialogContent as="article">
+      <p>This is an article</p>
+    </DialogContent>
+  </Dialog.Root>
 );
 ```

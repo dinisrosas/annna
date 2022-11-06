@@ -26,9 +26,9 @@ Import the component.
 import { Slot } from '@radix-ui/react-slot';
 
 export default () => (
-	<Slot>
-		<div>Hello</div>
-	</Slot>
+  <Slot>
+    <div>Hello</div>
+  </Slot>
 );
 ```
 
@@ -42,8 +42,8 @@ import React from 'react';
 import { Slot } from '@radix-ui/react-slot';
 
 function Button({ asChild, ...props }) {
-	const Comp = asChild ? Slot : 'button';
-	return <Comp {...props} />;
+  const Comp = asChild ? Slot : 'button';
+  return <Comp {...props} />;
 }
 ```
 
@@ -53,9 +53,9 @@ function Button({ asChild, ...props }) {
 import { Button } from './your-button';
 
 export default () => (
-	<Button asChild>
-		<a href="/contact">Contact</a>
-	</Button>
+  <Button asChild>
+    <a href="/contact">Contact</a>
+  </Button>
 );
 ```
 

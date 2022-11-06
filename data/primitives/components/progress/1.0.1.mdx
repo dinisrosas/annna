@@ -8,12 +8,12 @@ aria: https://www.w3.org/WAI/ARIA/apg/patterns/meter
 # Progress
 
 <Description>
-	Displays an indicator showing the completion progress of a task, typically displayed as a progress
-	bar.
+  Displays an indicator showing the completion progress of a task, typically
+  displayed as a progress bar.
 </Description>
 
 <HeroContainer>
-	<ProgressDemo />
+  <ProgressDemo />
 </HeroContainer>
 
 ```jsx hero template=Progress
@@ -21,7 +21,9 @@ aria: https://www.w3.org/WAI/ARIA/apg/patterns/meter
 ```
 
 <Highlights
-	features={['Provides context for assistive technology to read the progress of a task.']}
+  features={[
+    'Provides context for assistive technology to read the progress of a task.',
+  ]}
 />
 
 ## Installation
@@ -40,9 +42,9 @@ Import all parts and piece them together.
 import * as Progress from '@radix-ui/react-progress';
 
 export default () => (
-	<Progress.Root>
-		<Progress.Indicator />
-	</Progress.Root>
+  <Progress.Root>
+    <Progress.Indicator />
+  </Progress.Root>
 );
 ```
 
@@ -63,50 +65,50 @@ Adheres to the [`progressbar` role requirements](https://www.w3.org/WAI/ARIA/apg
 Contains all of the progress parts.
 
 <PropsTable
-	data={[
-		{
-			name: 'asChild',
-			required: false,
-			type: 'boolean',
-			default: 'false',
-			description:
-				'Change the component to the HTML tag or custom component of the only child. This will merge the original component props with the props of the supplied element/component and change the underlying DOM node.'
-		},
-		{
-			name: 'value',
-			type: 'number | null',
-			description: 'The progress value.'
-		},
-		{
-			name: 'max',
-			type: 'number',
-			description: 'The maximum progress value.'
-		},
-		{
-			name: 'getValueLabel',
-			type: '(value: number, max: number) => string',
-			typeSimple: 'function',
-			description:
-				'A function to get the accessible label text representing the current value in a human-readable format. If not provided, the value label will be read as the numeric value as a percentage of the max value.'
-		}
-	]}
+  data={[
+    {
+      name: 'asChild',
+      required: false,
+      type: 'boolean',
+      default: 'false',
+      description:
+        'Change the component to the HTML tag or custom component of the only child. This will merge the original component props with the props of the supplied element/component and change the underlying DOM node.',
+    },
+    {
+      name: 'value',
+      type: 'number | null',
+      description: 'The progress value.',
+    },
+    {
+      name: 'max',
+      type: 'number',
+      description: 'The maximum progress value.',
+    },
+    {
+      name: 'getValueLabel',
+      type: '(value: number, max: number) => string',
+      typeSimple: 'function',
+      description:
+        'A function to get the accessible label text representing the current value in a human-readable format. If not provided, the value label will be read as the numeric value as a percentage of the max value.',
+    },
+  ]}
 />
 
 <DataAttributesTable
-	data={[
-		{
-			attribute: '[data-state]',
-			values: ['complete', 'indeterminate', 'loading']
-		},
-		{
-			attribute: '[data-value]',
-			values: 'The current value'
-		},
-		{
-			attribute: '[data-max]',
-			values: 'The max value'
-		}
-	]}
+  data={[
+    {
+      attribute: '[data-state]',
+      values: ['complete', 'indeterminate', 'loading'],
+    },
+    {
+      attribute: '[data-value]',
+      values: 'The current value',
+    },
+    {
+      attribute: '[data-max]',
+      values: 'The max value',
+    },
+  ]}
 />
 
 ### Indicator
@@ -114,31 +116,31 @@ Contains all of the progress parts.
 Used to show the progress visually. It also makes progress accessible to assistive technologies.
 
 <PropsTable
-	data={[
-		{
-			name: 'asChild',
-			required: false,
-			type: 'boolean',
-			default: 'false',
-			description:
-				'Change the component to the HTML tag or custom component of the only child. This will merge the original component props with the props of the supplied element/component and change the underlying DOM node.'
-		}
-	]}
+  data={[
+    {
+      name: 'asChild',
+      required: false,
+      type: 'boolean',
+      default: 'false',
+      description:
+        'Change the component to the HTML tag or custom component of the only child. This will merge the original component props with the props of the supplied element/component and change the underlying DOM node.',
+    },
+  ]}
 />
 
 <DataAttributesTable
-	data={[
-		{
-			attribute: '[data-state]',
-			values: ['complete', 'indeterminate', 'loading']
-		},
-		{
-			attribute: '[data-value]',
-			values: 'The current value'
-		},
-		{
-			attribute: '[data-max]',
-			values: 'The max value'
-		}
-	]}
+  data={[
+    {
+      attribute: '[data-state]',
+      values: ['complete', 'indeterminate', 'loading'],
+    },
+    {
+      attribute: '[data-value]',
+      values: 'The current value',
+    },
+    {
+      attribute: '[data-max]',
+      values: 'The max value',
+    },
+  ]}
 />

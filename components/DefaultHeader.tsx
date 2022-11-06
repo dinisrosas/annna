@@ -7,59 +7,59 @@ import { ThemeToggle } from '@components/ThemeToggle';
 import { BoxLink } from '@components/BoxLink';
 import { RemoveScroll } from 'react-remove-scroll';
 import {
-	ResourcePrimitives,
-	ResourceStitches,
-	ResourceColors,
-	ResourceIcons,
-	ResourcesPopover
+  ResourcePrimitives,
+  ResourceStitches,
+  ResourceColors,
+  ResourceIcons,
+  ResourcesPopover,
 } from './Resources';
 
 export const DefaultHeader = () => {
-	const router = useRouter();
-	const isColors = router.pathname.includes('/colors') || router.pathname.includes('/docs/colors');
-	const rootPath = isColors ? '/colors' : '/';
-	const docsPath = `/docs/${isColors ? 'colors' : 'primitives'}`;
+  const router = useRouter();
+  const isColors = router.pathname.includes('/colors') || router.pathname.includes('/docs/colors');
+  const rootPath = isColors ? '/colors' : '/';
+  const docsPath = `/docs/${isColors ? 'colors' : 'primitives'}`;
 
-	return (
-		<Box as="header" className={RemoveScroll.classNames.fullWidth}>
-			<Container size="4">
-				<Flex align="center" justify="between" css={{ height: '$8' }}>
-					<NextLink href={rootPath} passHref>
-						<BoxLink>
-							<RadixLogo label={isColors ? 'Radix Colors homepage' : 'Radix homepage'} />
-						</BoxLink>
-					</NextLink>
+  return (
+    <Box as="header" className={RemoveScroll.classNames.fullWidth}>
+      <Container size="4">
+        <Flex align="center" justify="between" css={{ height: '$8' }}>
+          <NextLink href={rootPath} passHref>
+            <BoxLink>
+              <RadixLogo label={isColors ? 'Radix Colors homepage' : 'Radix homepage'} />
+            </BoxLink>
+          </NextLink>
 
-					<Flex align="center" gap={{ '@initial': '4', '@bp2': '5' }}>
-						<Box css={{ display: 'none', '@bp1': { display: 'contents' } }}>
-							{/* <NextLink href={docsPath} passHref>
+          <Flex align="center" gap={{ '@initial': '4', '@bp2': '5' }}>
+            <Box css={{ display: 'none', '@bp1': { display: 'contents' } }}>
+              {/* <NextLink href={docsPath} passHref>
                 <Link variant={router.pathname.includes(docsPath) ? 'contrast' : 'subtle'}>
                   <Text>Documentation</Text>
                 </Link>
               </NextLink> */}
 
-							{!isColors && (
-								<NextLink href="/casos-de-estudo" passHref>
-									<Link
-										variant={router.pathname.includes('/casos-de-estudo') ? 'contrast' : 'subtle'}
-									>
-										<Text>Casos de Estudo</Text>
-									</Link>
-								</NextLink>
-							)}
-						</Box>
+              {!isColors && (
+                <NextLink href="/casos-de-estudo" passHref>
+                  <Link
+                    variant={router.pathname.includes('/casos-de-estudo') ? 'contrast' : 'subtle'}
+                  >
+                    <Text>Casos de Estudo</Text>
+                  </Link>
+                </NextLink>
+              )}
+            </Box>
 
-						{/* <ResourcesPopover>
+            {/* <ResourcesPopover>
               {isColors && <ResourcePrimitives />}
               <ResourceStitches />
               {isColors === false && <ResourceColors />}
               <ResourceIcons />
             </ResourcesPopover> */}
 
-						<ThemeToggle />
-					</Flex>
-				</Flex>
-			</Container>
-		</Box>
-	);
+            <ThemeToggle />
+          </Flex>
+        </Flex>
+      </Container>
+    </Box>
+  );
 };

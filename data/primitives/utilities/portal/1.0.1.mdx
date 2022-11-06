@@ -6,13 +6,15 @@ name: portal
 
 # Portal
 
-<Description>Renders a React subtree in a different part of the DOM.</Description>
+<Description>
+  Renders a React subtree in a different part of the DOM.
+</Description>
 
 <Highlights
-	features={[
-		'Render any React subtree outside of your App.',
-		'Appends to `document.body` by default but can be customized to use a different container.'
-	]}
+  features={[
+    'Render any React subtree outside of your App.',
+    'Appends to `document.body` by default but can be customized to use a different container.',
+  ]}
 />
 
 ## Installation
@@ -50,19 +52,20 @@ export default () => <Portal.Root>Content</Portal.Root>;
 Anything you put inside this component will be rendered in a separate `<div>` element. By default, this element will be appended to `document.body` but you can choose a different container by using the `container` prop.
 
 <PropsTable
-	data={[
-		{
-			name: 'asChild',
-			required: false,
-			type: 'boolean',
-			default: 'false',
-			description:
-				'Change the component to the HTML tag or custom component of the only child. This will merge the original component props with the props of the supplied element/component and change the underlying DOM node.'
-		},
-		{
-			name: 'container',
-			type: 'HTMLElement',
-			description: 'A optional different container where the portaled content should be appended.'
-		}
-	]}
+  data={[
+    {
+      name: 'asChild',
+      required: false,
+      type: 'boolean',
+      default: 'false',
+      description:
+        'Change the component to the HTML tag or custom component of the only child. This will merge the original component props with the props of the supplied element/component and change the underlying DOM node.',
+    },
+    {
+      name: 'container',
+      type: 'HTMLElement',
+      description:
+        'A optional different container where the portaled content should be appended.',
+    },
+  ]}
 />

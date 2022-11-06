@@ -1,24 +1,24 @@
 import React from 'react';
 import NextLink from 'next/link';
 import {
-	Box,
-	Text,
-	styled,
-	darkTheme,
-	Container,
-	Flex,
-	Paragraph,
-	Section,
-	Link
+  Box,
+  Text,
+  styled,
+  darkTheme,
+  Container,
+  Flex,
+  Paragraph,
+  Section,
+  Link,
 } from '@modulz/design-system';
 import { ArrowLeftIcon, ArrowRightIcon } from '@radix-ui/react-icons';
 import { MarketingButton } from './MarketingButton';
 import {
-	Carousel,
-	CarouselSlideList,
-	CarouselSlide,
-	CarouselNext,
-	CarouselPrevious
+  Carousel,
+  CarouselSlideList,
+  CarouselSlide,
+  CarouselNext,
+  CarouselPrevious,
 } from './Carousel';
 import { MainHeroDialog } from './MainHeroDialog';
 import { MainHeroPopover } from './MainHeroPopover';
@@ -33,360 +33,359 @@ import { MainHeroSwitch } from './MainHeroSwitch';
 import { useComposedRefs } from '@radix-ui/react-compose-refs';
 
 const DemoContainer = styled('div', {
-	display: 'flex',
-	position: 'relative',
-	ai: 'center',
-	jc: 'center',
-	width: 300,
-	height: 400,
-	borderRadius: '$3',
-	mb: '$2',
+  display: 'flex',
+  position: 'relative',
+  ai: 'center',
+  jc: 'center',
+  width: 300,
+  height: 400,
+  borderRadius: '$3',
+  mb: '$2',
 
-	// Content slightly above vertical center feels perfectly centred
-	pb: '$3',
+  // Content slightly above vertical center feels perfectly centred
+  pb: '$3',
 
-	// Can't select text because the carousel is draggable
-	userSelect: 'none',
-	cursor: 'default',
+  // Can't select text because the carousel is draggable
+  userSelect: 'none',
+  cursor: 'default',
 
-	'@bp1': {
-		width: 400
-	}
+  '@bp1': {
+    width: 400,
+  },
 });
 
 const StyledFocusArea = styled('div', {
-	outline: 0,
-	borderRadius: '$3',
-	'&:focus': {
-		boxShadow: '0 0 0 2px $colors$blue8'
-	},
-	'&:focus:not(:focus-visible)': {
-		boxShadow: 'none'
-	}
+  outline: 0,
+  borderRadius: '$3',
+  '&:focus': {
+    boxShadow: '0 0 0 2px $colors$blue8',
+  },
+  '&:focus:not(:focus-visible)': {
+    boxShadow: 'none',
+  },
 });
 
 const FocusArea = React.forwardRef<HTMLDivElement, React.ComponentProps<typeof StyledFocusArea>>(
-	({ children, onKeyDown, ...props }, forwardedRef) => {
-		const ownRef = React.useRef<HTMLDivElement>(null);
-		const composedRef = useComposedRefs(ownRef, forwardedRef);
+  ({ children, onKeyDown, ...props }, forwardedRef) => {
+    const ownRef = React.useRef<HTMLDivElement>(null);
+    const composedRef = useComposedRefs(ownRef, forwardedRef);
 
-		return (
-			<StyledFocusArea
-				{...props}
-				data-focus-area
-				ref={composedRef}
-				tabIndex={0}
-				onKeyDown={(event) => {
-					onKeyDown?.(event);
+    return (
+      <StyledFocusArea
+        {...props}
+        data-focus-area
+        ref={composedRef}
+        tabIndex={0}
+        onKeyDown={(event) => {
+          onKeyDown?.(event);
 
-					// Move focus inside the FocusArea when Enter or Spacebar is pressed
-					if (
-						event.target === event.currentTarget &&
-						(event.key === 'Enter' || event.key === ' ')
-					) {
-						// We are looking for something obviously focusable
-						const tier1 =
-							'[role="menu"], [role="dialog"] input, [role="dialog"] button, [tabindex="0"]';
-						const tier2 = 'a, button, input, select, textarea';
+          // Move focus inside the FocusArea when Enter or Spacebar is pressed
+          if (
+            event.target === event.currentTarget &&
+            (event.key === 'Enter' || event.key === ' ')
+          ) {
+            // We are looking for something obviously focusable
+            const tier1 =
+              '[role="menu"], [role="dialog"] input, [role="dialog"] button, [tabindex="0"]';
+            const tier2 = 'a, button, input, select, textarea';
 
-						// Search for tier 1 and tier 2 elements, prioritising
-						const elementToFocus = [
-							event.currentTarget.querySelector<HTMLElement>(tier1),
-							event.currentTarget.querySelector<HTMLElement>(tier2)
-						].filter((el) => Boolean(el))[0];
+            // Search for tier 1 and tier 2 elements, prioritising
+            const elementToFocus = [
+              event.currentTarget.querySelector<HTMLElement>(tier1),
+              event.currentTarget.querySelector<HTMLElement>(tier2),
+            ].filter((el) => Boolean(el))[0];
 
-						if (elementToFocus) {
-							event.preventDefault();
-							elementToFocus.focus();
-						}
-					}
+            if (elementToFocus) {
+              event.preventDefault();
+              elementToFocus.focus();
+            }
+          }
 
-					// Move focus onto the FocusArea when Escape is pressed, unless the focus is currently inside a modal
-					if (
-						event.key === 'Escape' &&
-						event.target instanceof HTMLElement &&
-						event.target !== event.currentTarget &&
-						event.target.closest('[role="dialog"], [role="menu"]') === null
-					) {
-						event.currentTarget.focus();
-					}
-				}}
-			>
-				<div data-focus-area-entry />
-				{children}
-				<div data-focus-area-exit />
-			</StyledFocusArea>
-		);
-	}
+          // Move focus onto the FocusArea when Escape is pressed, unless the focus is currently inside a modal
+          if (
+            event.key === 'Escape' &&
+            event.target instanceof HTMLElement &&
+            event.target !== event.currentTarget &&
+            event.target.closest('[role="dialog"], [role="menu"]') === null
+          ) {
+            event.currentTarget.focus();
+          }
+        }}
+      >
+        <div data-focus-area-entry />
+        {children}
+        <div data-focus-area-exit />
+      </StyledFocusArea>
+    );
+  }
 );
 
 export const MainHero = () => {
-	const lastUsedFocusArea = React.useRef<HTMLElement>(null);
-	const isRoving = React.useRef(false);
+  const lastUsedFocusArea = React.useRef<HTMLElement>(null);
+  const isRoving = React.useRef(false);
 
-	React.useEffect(() => {
-		lastUsedFocusArea.current = document.querySelector('[data-focus-area]');
-	}, []);
+  React.useEffect(() => {
+    lastUsedFocusArea.current = document.querySelector('[data-focus-area]');
+  }, []);
 
-	const onFocusAreaFocus = React.useCallback((event: React.FocusEvent<HTMLElement>) => {
-		lastUsedFocusArea.current = event.currentTarget;
-	}, []);
+  const onFocusAreaFocus = React.useCallback((event: React.FocusEvent<HTMLElement>) => {
+    lastUsedFocusArea.current = event.currentTarget;
+  }, []);
 
-	// We are implementing a simple roving tab index with some tweaks
-	const onFocusAreaKeyDown = React.useCallback((event: React.KeyboardEvent<HTMLElement>) => {
-		if (event.target === event.currentTarget) {
-			if (event.key === 'ArrowRight') {
-				event.preventDefault();
-				const allAreas = Array.from(document.querySelectorAll<HTMLElement>('[data-focus-area]'));
-				const thisIndex = allAreas.findIndex((el) => el === event.currentTarget);
-				const nextIndex = Math.min(thisIndex + 1, allAreas.length - 1);
-				const nextDemo = allAreas[nextIndex];
-				isRoving.current = true;
-				nextDemo.focus();
-				(nextDemo as any).scrollIntoViewIfNeeded?.(true);
-				lastUsedFocusArea.current = nextDemo;
-				isRoving.current = false;
-			}
+  // We are implementing a simple roving tab index with some tweaks
+  const onFocusAreaKeyDown = React.useCallback((event: React.KeyboardEvent<HTMLElement>) => {
+    if (event.target === event.currentTarget) {
+      if (event.key === 'ArrowRight') {
+        event.preventDefault();
+        const allAreas = Array.from(document.querySelectorAll<HTMLElement>('[data-focus-area]'));
+        const thisIndex = allAreas.findIndex((el) => el === event.currentTarget);
+        const nextIndex = Math.min(thisIndex + 1, allAreas.length - 1);
+        const nextDemo = allAreas[nextIndex];
+        isRoving.current = true;
+        nextDemo.focus();
+        (nextDemo as any).scrollIntoViewIfNeeded?.(true);
+        lastUsedFocusArea.current = nextDemo;
+        isRoving.current = false;
+      }
 
-			if (event.key === 'ArrowLeft') {
-				event.preventDefault();
-				const allAreas = Array.from(document.querySelectorAll<HTMLElement>('[data-focus-area]'));
-				const thisIndex = allAreas.findIndex((el) => el === event.currentTarget);
-				const prevIndex = Math.max(thisIndex - 1, 0); // thisIndex - 1 >= 0 ? thisIndex - 1 : allAreas.length - 1;
-				const prevDemo = allAreas[prevIndex];
-				isRoving.current = true;
-				prevDemo.focus();
-				(prevDemo as any).scrollIntoViewIfNeeded?.(true);
-				lastUsedFocusArea.current = prevDemo;
-				isRoving.current = false;
-			}
+      if (event.key === 'ArrowLeft') {
+        event.preventDefault();
+        const allAreas = Array.from(document.querySelectorAll<HTMLElement>('[data-focus-area]'));
+        const thisIndex = allAreas.findIndex((el) => el === event.currentTarget);
+        const prevIndex = Math.max(thisIndex - 1, 0); // thisIndex - 1 >= 0 ? thisIndex - 1 : allAreas.length - 1;
+        const prevDemo = allAreas[prevIndex];
+        isRoving.current = true;
+        prevDemo.focus();
+        (prevDemo as any).scrollIntoViewIfNeeded?.(true);
+        lastUsedFocusArea.current = prevDemo;
+        isRoving.current = false;
+      }
 
-			// Tab key press moves focus to the next element after the carousel
-			if (event.key === 'Tab' && event.shiftKey === false) {
-				const selector = 'a, button, input, select, textarea, [data-focus-area-exit]';
-				const elements = Array.from(document.querySelectorAll<HTMLElement>(selector)).filter(
-					(element) => element.tabIndex !== -1 || element.hasAttribute('data-focus-area-exit')
-				);
+      // Tab key press moves focus to the next element after the carousel
+      if (event.key === 'Tab' && event.shiftKey === false) {
+        const selector = 'a, button, input, select, textarea, [data-focus-area-exit]';
+        const elements = Array.from(document.querySelectorAll<HTMLElement>(selector)).filter(
+          (element) => element.tabIndex !== -1 || element.hasAttribute('data-focus-area-exit')
+        );
 
-				// Find last exit guard
-				elements.reverse();
-				const lastExit = elements.find((el) => el.matches('[data-focus-area-exit]'));
-				elements.reverse();
-				const lastExitIndex = elements.indexOf(lastExit);
-				const nextElement = elements[lastExitIndex + 1];
+        // Find last exit guard
+        elements.reverse();
+        const lastExit = elements.find((el) => el.matches('[data-focus-area-exit]'));
+        elements.reverse();
+        const lastExitIndex = elements.indexOf(lastExit);
+        const nextElement = elements[lastExitIndex + 1];
 
-				if (nextElement) {
-					event.preventDefault();
-					nextElement.focus();
-				}
-			}
+        if (nextElement) {
+          event.preventDefault();
+          nextElement.focus();
+        }
+      }
 
-			// Shift + Tab key press moves focus to the previous element before the carousel
-			if (event.key === 'Tab' && event.shiftKey) {
-				const selector = 'a, button, input, select, textarea, [data-focus-area-entry]';
-				const elements = Array.from(document.querySelectorAll<HTMLElement>(selector)).filter(
-					(element) => element.tabIndex !== -1 || element.hasAttribute('data-focus-area-entry')
-				);
+      // Shift + Tab key press moves focus to the previous element before the carousel
+      if (event.key === 'Tab' && event.shiftKey) {
+        const selector = 'a, button, input, select, textarea, [data-focus-area-entry]';
+        const elements = Array.from(document.querySelectorAll<HTMLElement>(selector)).filter(
+          (element) => element.tabIndex !== -1 || element.hasAttribute('data-focus-area-entry')
+        );
 
-				// Find first entry guard
-				const firstEntry = elements.find((el) => el.matches('[data-focus-area-entry]'));
-				const firstEntryIndex = elements.indexOf(firstEntry);
-				const prevElement = elements[firstEntryIndex - 1];
+        // Find first entry guard
+        const firstEntry = elements.find((el) => el.matches('[data-focus-area-entry]'));
+        const firstEntryIndex = elements.indexOf(firstEntry);
+        const prevElement = elements[firstEntryIndex - 1];
 
-				if (prevElement) {
-					event.preventDefault();
-					prevElement.focus();
-				}
-			}
-		}
-	}, []);
+        if (prevElement) {
+          event.preventDefault();
+          prevElement.focus();
+        }
+      }
+    }
+  }, []);
 
-	React.useEffect(() => {
-		const tabListener = (event: KeyboardEvent) => {
-			// Catch that Tab that lands into carousel contents from
-			// elsewhere, and redirect focus to the nearest focus area
-			if (
-				event.key === 'Tab' &&
-				event.shiftKey === false &&
-				event.target instanceof HTMLElement &&
-				!event.target.hasAttribute('data-focus-area')
-			) {
-				const selector = 'a, button, input, select, textarea, [data-focus-area-entry]';
-				const elements = Array.from(document.querySelectorAll<HTMLElement>(selector)).filter(
-					(element) =>
-						element.tabIndex !== -1 ||
-						element === event.target ||
-						element.hasAttribute('data-focus-area-entry')
-				);
+  React.useEffect(() => {
+    const tabListener = (event: KeyboardEvent) => {
+      // Catch that Tab that lands into carousel contents from
+      // elsewhere, and redirect focus to the nearest focus area
+      if (
+        event.key === 'Tab' &&
+        event.shiftKey === false &&
+        event.target instanceof HTMLElement &&
+        !event.target.hasAttribute('data-focus-area')
+      ) {
+        const selector = 'a, button, input, select, textarea, [data-focus-area-entry]';
+        const elements = Array.from(document.querySelectorAll<HTMLElement>(selector)).filter(
+          (element) =>
+            element.tabIndex !== -1 ||
+            element === event.target ||
+            element.hasAttribute('data-focus-area-entry')
+        );
 
-				// Find first entry guard
-				const firstEntryIndex = elements.findIndex((el) =>
-					el.hasAttribute('data-focus-area-entry')
-				);
+        // Find first entry guard
+        const firstEntryIndex = elements.findIndex((el) =>
+          el.hasAttribute('data-focus-area-entry')
+        );
 
-				if (elements.indexOf(event.target) + 1 === firstEntryIndex) {
-					event.preventDefault();
-					lastUsedFocusArea.current?.focus();
-				}
-			}
+        if (elements.indexOf(event.target) + 1 === firstEntryIndex) {
+          event.preventDefault();
+          lastUsedFocusArea.current?.focus();
+        }
+      }
 
-			// Catch that Shift + Tab that lands into carousel contents from
-			// elsewhere, and redirect focus to the nearest focus area
-			if (
-				event.key === 'Tab' &&
-				event.shiftKey &&
-				event.target instanceof HTMLElement &&
-				!event.target.hasAttribute('data-focus-area')
-			) {
-				const selector = 'a, button, input, select, textarea, [data-focus-area-exit]';
-				const elements = Array.from(document.querySelectorAll<HTMLElement>(selector)).filter(
-					(element) =>
-						element.tabIndex !== -1 ||
-						element === event.target ||
-						element.hasAttribute('data-focus-area-exit')
-				);
+      // Catch that Shift + Tab that lands into carousel contents from
+      // elsewhere, and redirect focus to the nearest focus area
+      if (
+        event.key === 'Tab' &&
+        event.shiftKey &&
+        event.target instanceof HTMLElement &&
+        !event.target.hasAttribute('data-focus-area')
+      ) {
+        const selector = 'a, button, input, select, textarea, [data-focus-area-exit]';
+        const elements = Array.from(document.querySelectorAll<HTMLElement>(selector)).filter(
+          (element) =>
+            element.tabIndex !== -1 ||
+            element === event.target ||
+            element.hasAttribute('data-focus-area-exit')
+        );
 
-				// Find last exit guard
-				elements.reverse();
-				const lastExit = elements.find((el) => el.hasAttribute('data-focus-area-exit'));
-				elements.reverse();
-				const lastExitIndex = elements.indexOf(lastExit);
+        // Find last exit guard
+        elements.reverse();
+        const lastExit = elements.find((el) => el.hasAttribute('data-focus-area-exit'));
+        elements.reverse();
+        const lastExitIndex = elements.indexOf(lastExit);
 
-				if (elements.indexOf(event.target) - 1 === lastExitIndex) {
-					event.preventDefault();
-					lastUsedFocusArea.current?.focus();
-				}
-			}
-		};
+        if (elements.indexOf(event.target) - 1 === lastExitIndex) {
+          event.preventDefault();
+          lastUsedFocusArea.current?.focus();
+        }
+      }
+    };
 
-		document.addEventListener('keydown', tabListener);
-		return () => document.removeEventListener('keydown', tabListener);
-	}, []);
+    document.addEventListener('keydown', tabListener);
+    return () => document.removeEventListener('keydown', tabListener);
+  }, []);
 
-	return (
-		<Section
-			css={{
-				paddingTop: '$4',
-				// Starting at 850px viewport height, grow the padding top from $5 until it's $9.
-				'@media (min-width: 900px) and (min-height: 850px)': {
-					paddingTop: 'min($9, calc($5 + 0.35 * (100vh - 850px)))'
-				}
-			}}
-		>
-			<Container size="3">
-				<Box css={{ mb: '$6' }}>
-					<Text
-						as="h1"
-						size={{ '@initial': 8, '@bp1': 9 }}
-						css={{
-							color: 'transparent',
-							WebkitBackgroundClip: 'text',
-							backgroundImage: 'radial-gradient(circle, $hiContrast, $colors$indigo12)',
-							// Use padding rather than margin, or otherwise some descenders
-							// may be clipped with WebkitBackgroundClip: 'text'
-							pb: '$4',
-							// Same issue, letters may be clipped horizontally
-							px: '$2',
-							mx: '-$2',
-							mt: '$7',
-							fontWeight: 500,
-							fontSize: 'min(max($8, 11.2vw), $9)',
-							letterSpacing: 'max(min(-0.055em, -0.66vw), -0.07em)',
-							'@media (min-width: 900px) and (min-height: 850px)': {
-								fontSize: '80px',
-								lineHeight: '0.85'
-							}
-						}}
-					>
-						Aumentamos as visitas <br />
-						orgânicas do seu website
-						<br />
-						em 357% em menos de 10 semanas.
-						{/* <span style={{ fontSize: '90%' }}>?</span> */}
-					</Text>
-					<Box css={{ maxWidth: 500, mb: '$5' }}>
-						<Paragraph size="2" as="p">
-							Usando uma estratégia sólida e bem sucessida em mais de 1000 projetos, em centenas de
-							nichos ao longo de mais de 10 anos.
-						</Paragraph>
-					</Box>
-					<Link
-						href="https://xks93eskgj8.typeform.com/to/EMjpPzSq"
-						target="_blank"
-						css={{ textDecoration: 'none' }}
-					>
-						<MarketingButton as="a" icon={ArrowRightIcon}>
-							Avaliar o meu website
-						</MarketingButton>
-					</Link>
-				</Box>
-			</Container>
+  return (
+    <Section
+      css={{
+        paddingTop: '$4',
+        // Starting at 850px viewport height, grow the padding top from $5 until it's $9.
+        '@media (min-width: 900px) and (min-height: 850px)': {
+          paddingTop: 'min($9, calc($5 + 0.35 * (100vh - 850px)))',
+        },
+      }}
+    >
+      <Container size="3">
+        <Box css={{ mb: '$6' }}>
+          <Text
+            as="h1"
+            size={{ '@initial': 8, '@bp1': 9 }}
+            css={{
+              color: 'transparent',
+              WebkitBackgroundClip: 'text',
+              backgroundImage: 'radial-gradient(circle, $hiContrast, $colors$indigo12)',
+              // Use padding rather than margin, or otherwise some descenders
+              // may be clipped with WebkitBackgroundClip: 'text'
+              pb: '$4',
+              // Same issue, letters may be clipped horizontally
+              px: '$2',
+              mx: '-$2',
+              mt: '$7',
+              fontWeight: 500,
+              fontSize: 'min(max($8, 11.2vw), $9)',
+              letterSpacing: 'max(min(-0.055em, -0.66vw), -0.07em)',
+              wordWrap: 'break-word',
+              maxWidth: '840px',
+              '@media (min-width: 900px) and (min-height: 850px)': {
+                fontSize: '80px',
+                lineHeight: '0.85',
+              },
+            }}
+          >
+            Aumentamos o tráfego orgânico do seu website em 357% em menos de 10 semanas.
+            {/* <span style={{ fontSize: '90%' }}>?</span> */}
+          </Text>
+          <Box css={{ maxWidth: 500, mb: '$5' }}>
+            <Paragraph size="2" as="p">
+              Através de uma estratégia refinada por especialistas ao longo de vários anos e em mais
+              de 1000 projetos.
+            </Paragraph>
+          </Box>
+          <Link
+            href="https://xks93eskgj8.typeform.com/to/EMjpPzSq"
+            target="_blank"
+            css={{ textDecoration: 'none' }}
+          >
+            <MarketingButton as="a" icon={ArrowRightIcon}>
+              Avaliar o meu website
+            </MarketingButton>
+          </Link>
+        </Box>
+      </Container>
 
-			<Box id="processo" css={{ position: 'relative' }}>
-				<Carousel>
-					<CarouselSlideList
-						css={{
-							display: 'grid',
-							gridAutoFlow: 'column',
-							gridAutoColumns: 'min-content',
-							ox: 'auto',
-							oy: 'hidden',
-							py: '$1',
-							WebkitOverflowScrolling: 'touch',
+      <Box id="processo" css={{ position: 'relative' }}>
+        <Carousel>
+          <CarouselSlideList
+            css={{
+              display: 'grid',
+              gridAutoFlow: 'column',
+              gridAutoColumns: 'min-content',
+              ox: 'auto',
+              oy: 'hidden',
+              py: '$1',
+              WebkitOverflowScrolling: 'touch',
 
-							// Gap between slides
-							$$gap: '$space$5',
+              // Gap between slides
+              $$gap: '$space$5',
 
-							// calculate the left padding to apply to the scrolling list
-							// so that the carousel starts aligned with the container component
-							// the "1145" and "$5" values comes from the <Container /> component
-							'$$scroll-padding': 'max($$gap, calc((100% - 1145px) / 2 + $$gap))',
-							pl: '$$scroll-padding',
+              // calculate the left padding to apply to the scrolling list
+              // so that the carousel starts aligned with the container component
+              // the "1145" and "$5" values comes from the <Container /> component
+              '$$scroll-padding': 'max($$gap, calc((100% - 1145px) / 2 + $$gap))',
+              pl: '$$scroll-padding',
 
-							// hide scrollbar
-							MsOverflowStyle: 'none',
-							scrollbarWidth: 'none',
-							'&::-webkit-scrollbar': {
-								display: 'none'
-							},
+              // hide scrollbar
+              MsOverflowStyle: 'none',
+              scrollbarWidth: 'none',
+              '&::-webkit-scrollbar': {
+                display: 'none',
+              },
 
-							// Can't have nice grid gap because Safari butchers scroll padding with it
-							'& > *': {
-								pr: '$$gap'
-							}
-						}}
-					>
-						<CarouselSlide id="pesquisa">
-							<FocusArea
-								aria-label="Dialog component demo"
-								onKeyDown={onFocusAreaKeyDown}
-								onFocus={onFocusAreaFocus}
-							>
-								<DemoContainer
-									aria-hidden
-									css={{
-										background: 'linear-gradient(120deg, $indigo6, $crimson5)',
-										[`.${darkTheme} &`]: {
-											background: 'linear-gradient(120deg, $indigo4, $plum3)'
-										}
-									}}
-								>
-									<MainHeroAccordion />
-								</DemoContainer>
-							</FocusArea>
-							<GrabBox>
-								<Text as="h3" size="3" css={{ fontWeight: 500, lineHeight: '25px' }}>
-									1. Análise e Pesquisa
-								</Text>
-								<Text as="p" size="3" variant="gray" css={{ lineHeight: '23px' }}>
-									O quão popular são os seus produtos/serviços na internet? Que tipo de pesquisas
-									são feitas sobre si? Que dúvidas e desejos têm as pessoas acerca da sua marca? O
-									que é que está a faltar no seu site?
-								</Text>
-							</GrabBox>
-						</CarouselSlide>
+              // Can't have nice grid gap because Safari butchers scroll padding with it
+              '& > *': {
+                pr: '$$gap',
+              },
+            }}
+          >
+            <CarouselSlide id="pesquisa">
+              <FocusArea
+                aria-label="Dialog component demo"
+                onKeyDown={onFocusAreaKeyDown}
+                onFocus={onFocusAreaFocus}
+              >
+                <DemoContainer
+                  aria-hidden
+                  css={{
+                    background: 'linear-gradient(120deg, $indigo6, $crimson5)',
+                    [`.${darkTheme} &`]: {
+                      background: 'linear-gradient(120deg, $indigo4, $plum3)',
+                    },
+                  }}
+                >
+                  <MainHeroAccordion />
+                </DemoContainer>
+              </FocusArea>
+              <GrabBox>
+                <Text as="h3" size="3" css={{ fontWeight: 500, lineHeight: '25px' }}>
+                  1. Análise e Pesquisa
+                </Text>
+                <Text as="p" size="3" variant="gray" css={{ lineHeight: '23px' }}>
+                  O quão popular são os seus produtos/serviços na internet? Que tipo de pesquisas
+                  são feitas sobre si? Que dúvidas e desejos têm as pessoas acerca da sua marca? O
+                  que é que está a faltar no seu site?
+                </Text>
+              </GrabBox>
+            </CarouselSlide>
 
-						{/* <CarouselSlide>
+            {/* <CarouselSlide>
               <FocusArea
                 aria-label="Popover component demo"
                 onKeyDown={onFocusAreaKeyDown}
@@ -415,36 +414,36 @@ export const MainHero = () => {
               </GrabBox>
             </CarouselSlide> */}
 
-						<CarouselSlide id="estrategia">
-							<FocusArea
-								aria-label="Radio group component demo"
-								onKeyDown={onFocusAreaKeyDown}
-								onFocus={onFocusAreaFocus}
-							>
-								<DemoContainer
-									aria-hidden
-									css={{
-										background: 'linear-gradient(120deg, $indigo7, $cyan3)',
-										[`.${darkTheme} &`]: {
-											background: 'linear-gradient(120deg, $indigo5, $cyan7)'
-										}
-									}}
-								>
-									<MainHeroRadioGroup />
-								</DemoContainer>
-							</FocusArea>
-							<GrabBox>
-								<Text as="h3" size="3" css={{ fontWeight: 500, lineHeight: '25px' }}>
-									2. Estratégia de Otimização
-								</Text>
-								<Text as="p" size="3" variant="gray" css={{ lineHeight: '23px' }}>
-									Definição de estratégia detalhada para aumentar a visibilidade e reconhecimento da
-									sua marca e posicionar-se como autoridade de referência no seu mercado.
-								</Text>
-							</GrabBox>
-						</CarouselSlide>
+            <CarouselSlide id="estrategia">
+              <FocusArea
+                aria-label="Radio group component demo"
+                onKeyDown={onFocusAreaKeyDown}
+                onFocus={onFocusAreaFocus}
+              >
+                <DemoContainer
+                  aria-hidden
+                  css={{
+                    background: 'linear-gradient(120deg, $indigo7, $cyan3)',
+                    [`.${darkTheme} &`]: {
+                      background: 'linear-gradient(120deg, $indigo5, $cyan7)',
+                    },
+                  }}
+                >
+                  <MainHeroRadioGroup />
+                </DemoContainer>
+              </FocusArea>
+              <GrabBox>
+                <Text as="h3" size="3" css={{ fontWeight: 500, lineHeight: '25px' }}>
+                  2. Estratégia de Otimização
+                </Text>
+                <Text as="p" size="3" variant="gray" css={{ lineHeight: '23px' }}>
+                  Definição de estratégia detalhada para aumentar a visibilidade e reconhecimento da
+                  sua marca e posicionar-se como autoridade de referência no seu mercado.
+                </Text>
+              </GrabBox>
+            </CarouselSlide>
 
-						{/* <CarouselSlide>
+            {/* <CarouselSlide>
               <FocusArea
                 aria-label="Dropdown menu component demo"
                 onKeyDown={onFocusAreaKeyDown}
@@ -473,67 +472,67 @@ export const MainHero = () => {
               </GrabBox>
             </CarouselSlide> */}
 
-						<CarouselSlide id="otimizacao">
-							<FocusArea
-								aria-label="Slider component demo"
-								onKeyDown={onFocusAreaKeyDown}
-								onFocus={onFocusAreaFocus}
-							>
-								<DemoContainer
-									aria-hidden
-									css={{
-										background: 'linear-gradient(120deg, $lime3, $pink4)',
-										[`.${darkTheme} &`]: {
-											background: 'linear-gradient(120deg, $sand6, $pink3)'
-										}
-									}}
-								>
-									<MainHeroSlider />
-								</DemoContainer>
-							</FocusArea>
-							<GrabBox>
-								<Text as="h3" size="3" css={{ fontWeight: 500, lineHeight: '25px' }}>
-									4. Otimização (in-page/off-page)
-								</Text>
-								<Text as="p" size="3" variant="gray" css={{ lineHeight: '23px' }}>
-									Alterações importantes na sua página fazem com que a sua visibilidade no Google
-									expluda. A nossa abordagem moderna e revolucionária ajuda-o a alcançar o que
-									deseja.
-								</Text>
-							</GrabBox>
-						</CarouselSlide>
+            <CarouselSlide id="otimizacao">
+              <FocusArea
+                aria-label="Slider component demo"
+                onKeyDown={onFocusAreaKeyDown}
+                onFocus={onFocusAreaFocus}
+              >
+                <DemoContainer
+                  aria-hidden
+                  css={{
+                    background: 'linear-gradient(120deg, $lime3, $pink4)',
+                    [`.${darkTheme} &`]: {
+                      background: 'linear-gradient(120deg, $sand6, $pink3)',
+                    },
+                  }}
+                >
+                  <MainHeroSlider />
+                </DemoContainer>
+              </FocusArea>
+              <GrabBox>
+                <Text as="h3" size="3" css={{ fontWeight: 500, lineHeight: '25px' }}>
+                  4. Otimização (in-page/off-page)
+                </Text>
+                <Text as="p" size="3" variant="gray" css={{ lineHeight: '23px' }}>
+                  Alterações importantes na sua página fazem com que a sua visibilidade no Google
+                  expluda. A nossa abordagem moderna e revolucionária ajuda-o a alcançar o que
+                  deseja.
+                </Text>
+              </GrabBox>
+            </CarouselSlide>
 
-						<CarouselSlide id="relatorio">
-							<FocusArea
-								aria-label="Scroll area component demo"
-								onKeyDown={onFocusAreaKeyDown}
-								onFocus={onFocusAreaFocus}
-							>
-								<DemoContainer
-									aria-hidden
-									css={{
-										background: 'linear-gradient(120deg, $pink4, $gold5)',
-										[`.${darkTheme} &`]: {
-											background: 'linear-gradient(120deg, $pink3, $gold4)'
-										}
-									}}
-								>
-									<MainHeroScrollArea />
-								</DemoContainer>
-							</FocusArea>
-							<GrabBox>
-								<Text as="h3" size="3" css={{ fontWeight: 500, lineHeight: '25px' }}>
-									5. Relatório
-								</Text>
-								<Text as="p" size="3" variant="gray" css={{ lineHeight: '23px' }}>
-									O quanto os rankings Google do seu website subiram? Qual o novo volume de tráfego
-									orgânico mensal? Qual o retorno estimado no investimento? Quais as previsões e
-									sugestões para o futuro?
-								</Text>
-							</GrabBox>
-						</CarouselSlide>
+            <CarouselSlide id="relatorio">
+              <FocusArea
+                aria-label="Scroll area component demo"
+                onKeyDown={onFocusAreaKeyDown}
+                onFocus={onFocusAreaFocus}
+              >
+                <DemoContainer
+                  aria-hidden
+                  css={{
+                    background: 'linear-gradient(120deg, $pink4, $gold5)',
+                    [`.${darkTheme} &`]: {
+                      background: 'linear-gradient(120deg, $pink3, $gold4)',
+                    },
+                  }}
+                >
+                  <MainHeroScrollArea />
+                </DemoContainer>
+              </FocusArea>
+              <GrabBox>
+                <Text as="h3" size="3" css={{ fontWeight: 500, lineHeight: '25px' }}>
+                  5. Relatório
+                </Text>
+                <Text as="p" size="3" variant="gray" css={{ lineHeight: '23px' }}>
+                  O quanto os rankings Google do seu website subiram? Qual o novo volume de tráfego
+                  orgânico mensal? Qual o retorno estimado no investimento? Quais as previsões e
+                  sugestões para o futuro?
+                </Text>
+              </GrabBox>
+            </CarouselSlide>
 
-						{/* <CarouselSlide>
+            {/* <CarouselSlide>
               <FocusArea
                 aria-label="Tabs component demo"
                 onKeyDown={onFocusAreaKeyDown}
@@ -562,7 +561,7 @@ export const MainHero = () => {
               </GrabBox>
             </CarouselSlide> */}
 
-						{/* <CarouselSlide>
+            {/* <CarouselSlide>
               <FocusArea
                 aria-label="Accordion component demo"
                 onKeyDown={onFocusAreaKeyDown}
@@ -591,7 +590,7 @@ export const MainHero = () => {
               </GrabBox>
             </CarouselSlide> */}
 
-						{/* <CarouselSlide>
+            {/* <CarouselSlide>
               <FocusArea
                 aria-label="Toggle group component demo"
                 onKeyDown={onFocusAreaKeyDown}
@@ -620,7 +619,7 @@ export const MainHero = () => {
               </GrabBox>
             </CarouselSlide> */}
 
-						{/* <CarouselSlide>
+            {/* <CarouselSlide>
               <FocusArea
                 aria-label="Switch component demo"
                 onKeyDown={onFocusAreaKeyDown}
@@ -648,135 +647,135 @@ export const MainHero = () => {
               </GrabBox>
             </CarouselSlide> */}
 
-						<CarouselSlide>
-							<FocusArea onKeyDown={onFocusAreaKeyDown} onFocus={onFocusAreaFocus}>
-								<DemoContainer
-									css={{
-										backgroundColor: '$whiteA6',
-										boxShadow: '0 0 0 1px $colors$slateA5',
-										[`.${darkTheme} &`]: {
-											backgroundColor: '$blackA4'
-										}
-									}}
-								>
-									<Flex align="center" direction="column" gap="2">
-										<Text size="2" variant="gray" css={{ textAlign: 'center' }}>
-											Peça uma análise ao seu website <br />
-											avaliada em 150€ totalmente grátis.
-										</Text>
-										<Text size="3">
-											<NextLink href="" passHref>
-												<Link css={{ display: 'inline-flex', alignItems: 'center' }}>
-													Analisar o meu website
-													<ArrowRightIcon />
-												</Link>
-											</NextLink>
-										</Text>
-									</Flex>
-								</DemoContainer>
-							</FocusArea>
-						</CarouselSlide>
-					</CarouselSlideList>
+            <CarouselSlide>
+              <FocusArea onKeyDown={onFocusAreaKeyDown} onFocus={onFocusAreaFocus}>
+                <DemoContainer
+                  css={{
+                    backgroundColor: '$whiteA6',
+                    boxShadow: '0 0 0 1px $colors$slateA5',
+                    [`.${darkTheme} &`]: {
+                      backgroundColor: '$blackA4',
+                    },
+                  }}
+                >
+                  <Flex align="center" direction="column" gap="2">
+                    <Text size="2" variant="gray" css={{ textAlign: 'center' }}>
+                      Peça uma análise ao seu website <br />
+                      avaliada em 150€ totalmente grátis.
+                    </Text>
+                    <Text size="3">
+                      <NextLink href="" passHref>
+                        <Link css={{ display: 'inline-flex', alignItems: 'center' }}>
+                          Analisar o meu website
+                          <ArrowRightIcon />
+                        </Link>
+                      </NextLink>
+                    </Text>
+                  </Flex>
+                </DemoContainer>
+              </FocusArea>
+            </CarouselSlide>
+          </CarouselSlideList>
 
-					<Box
-						css={{
-							position: 'absolute',
-							top: 'calc(50% - $7)',
-							left: '15px'
-						}}
-					>
-						<CarouselPrevious
-							aria-label="Show previous demo"
-							tabIndex={-1}
-							as={CarouselArrowButton}
-						>
-							<ArrowLeftIcon />
-						</CarouselPrevious>
-					</Box>
-					<Box
-						css={{
-							position: 'absolute',
-							top: 'calc(50% - $7)',
-							right: '15px'
-						}}
-					>
-						<CarouselNext aria-label="Show next demo" tabIndex={-1} as={CarouselArrowButton}>
-							<ArrowRightIcon />
-						</CarouselNext>
-					</Box>
-				</Carousel>
-			</Box>
-		</Section>
-	);
+          <Box
+            css={{
+              position: 'absolute',
+              top: 'calc(50% - $7)',
+              left: '15px',
+            }}
+          >
+            <CarouselPrevious
+              aria-label="Show previous demo"
+              tabIndex={-1}
+              as={CarouselArrowButton}
+            >
+              <ArrowLeftIcon />
+            </CarouselPrevious>
+          </Box>
+          <Box
+            css={{
+              position: 'absolute',
+              top: 'calc(50% - $7)',
+              right: '15px',
+            }}
+          >
+            <CarouselNext aria-label="Show next demo" tabIndex={-1} as={CarouselArrowButton}>
+              <ArrowRightIcon />
+            </CarouselNext>
+          </Box>
+        </Carousel>
+      </Box>
+    </Section>
+  );
 };
 
 const CarouselArrowButton = styled('button', {
-	unset: 'all',
-	outline: 0,
-	margin: 0,
-	border: 0,
-	padding: 0,
+  unset: 'all',
+  outline: 0,
+  margin: 0,
+  border: 0,
+  padding: 0,
 
-	display: 'flex',
-	position: 'relative',
-	zIndex: 1,
-	ai: 'center',
-	jc: 'center',
-	bc: '$panel',
-	br: '$round',
-	width: '$7',
-	height: '$7',
-	color: '$hiContrast',
+  display: 'flex',
+  position: 'relative',
+  zIndex: 1,
+  ai: 'center',
+  jc: 'center',
+  bc: '$panel',
+  br: '$round',
+  width: '$7',
+  height: '$7',
+  color: '$hiContrast',
 
-	boxShadow: '$colors$blackA11 0px 2px 12px -5px, $colors$blackA5 0px 1px 3px',
-	willChange: 'transform, box-shadow, opacity',
-	transition: 'all 100ms',
+  boxShadow: '$colors$blackA11 0px 2px 12px -5px, $colors$blackA5 0px 1px 3px',
+  willChange: 'transform, box-shadow, opacity',
+  transition: 'all 100ms',
 
-	'@hover': {
-		'&:hover': {
-			boxShadow: '$colors$blackA10 0px 3px 16px -5px, $colors$blackA5 0px 1px 3px',
-			transform: 'translateY(-1px)',
+  '@hover': {
+    '&:hover': {
+      boxShadow: '$colors$blackA10 0px 3px 16px -5px, $colors$blackA5 0px 1px 3px',
+      transform: 'translateY(-1px)',
 
-			// Fix a bug when hovering at button edges would cause the button to jitter because of transform
-			'&::before': {
-				content: '',
-				inset: -2,
-				br: '$round',
-				position: 'absolute'
-			}
-		}
-	},
-	'&:focus': {
-		boxShadow: `
+      // Fix a bug when hovering at button edges would cause the button to jitter because of transform
+      '&::before': {
+        content: '',
+        inset: -2,
+        br: '$round',
+        position: 'absolute',
+      },
+    },
+  },
+  '&:focus': {
+    boxShadow: `
       $colors$blackA10 0px 3px 16px -5px,
       $colors$blackA5 0px 1px 3px,
       $colors$blue8 0 0 0 2px
     `,
-		transform: 'translateY(-1px)'
-	},
-	'&:focus:not(:focus-visible)': {
-		boxShadow: '$colors$blackA11 0px 2px 12px -5px, $colors$blackA5 0px 1px 3px'
-	},
-	'&:active:not(:focus)': {
-		boxShadow: '$colors$blackA11 0px 2px 12px -5px, $colors$blackA5 0px 1px 3px'
-	},
-	'&:active': {
-		transform: 'none',
-		transition: 'opacity 100ms'
-	},
-	'&:disabled': {
-		opacity: 0
-	},
-	'@media (hover: none) and (pointer: coarse)': {
-		display: 'none'
-	}
+    transform: 'translateY(-1px)',
+  },
+  '&:focus:not(:focus-visible)': {
+    boxShadow: '$colors$blackA11 0px 2px 12px -5px, $colors$blackA5 0px 1px 3px',
+  },
+  '&:active:not(:focus)': {
+    boxShadow: '$colors$blackA11 0px 2px 12px -5px, $colors$blackA5 0px 1px 3px',
+  },
+  '&:active': {
+    transform: 'none',
+    transition: 'opacity 100ms',
+  },
+  '&:disabled': {
+    opacity: 0,
+  },
+  '@media (hover: none) and (pointer: coarse)': {
+    display: 'none',
+  },
 });
 
 const GrabBox = styled('div', {
-	cursor: 'grab',
-	'&:active': { cursor: 'grabbing' },
+  cursor: 'grab',
+  '&:active': { cursor: 'grabbing' },
 
-	// Fill in spaces between slides
-	mr: '-$$gap',
-	pr: '$$gap'
+  // Fill in spaces between slides
+  mr: '-$$gap',
+  pr: '$$gap',
 });

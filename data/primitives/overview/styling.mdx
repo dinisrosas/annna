@@ -6,8 +6,8 @@ metaDescription: Radix Primitives are unstyled—and compatible with any styling
 # Styling
 
 <Description>
-	Radix Primitives are unstyled—and compatible with any styling solution—giving you complete control
-	over styling.
+  Radix Primitives are unstyled—and compatible with any styling solution—giving
+  you complete control over styling.
 </Description>
 
 ## Styling overview
@@ -55,11 +55,11 @@ You can style a component state by targeting its `data-state` attribute.
 
 ```css
 .accordion-item {
-	border-bottom: 1px solid gainsboro;
+  border-bottom: 1px solid gainsboro;
 }
 
 .accordion-item[data-state='open'] {
-	border-bottom-width: 2px;
+  border-bottom-width: 2px;
 }
 ```
 
@@ -76,11 +76,11 @@ import { styled } from '@stitches/react';
 import * as Accordion from '@radix-ui/react-accordion';
 
 const StyledItem = styled(Accordion.Item, {
-	borderBottom: '1px solid gainsboro'
+  borderBottom: '1px solid gainsboro',
 });
 
 const StyledPanel = styled(Accordion.Panel, {
-	padding: 10
+  padding: 10,
 });
 ```
 
@@ -93,11 +93,11 @@ import { styled } from '@stitches/react';
 import * as Accordion from '@radix-ui/react-accordion';
 
 const StyledItem = styled(Accordion.Item, {
-	borderBottom: '1px solid gainsboro',
+  borderBottom: '1px solid gainsboro',
 
-	'&[data-state=open]': {
-		borderBottomWidth: '2px'
-	}
+  '&[data-state=open]': {
+    borderBottomWidth: '2px',
+  },
 });
 ```
 
@@ -116,16 +116,16 @@ const StyledTrigger = styled(Accordion.Trigger, {});
 const StyledPanel = styled(Accordion.Content, {});
 
 export default () => {
-	return (
-		<StyledAccordion type="single">
-			<StyledItem value="item-1">
-				<StyledHeader>
-					<StyledTrigger>Trigger text</StyledTrigger>
-				</StyledHeader>
-				<StyledPanel>Panel content</StyledPanel>
-			</StyledItem>
-		</StyledAccordion>
-	);
+  return (
+    <StyledAccordion type="single">
+      <StyledItem value="item-1">
+        <StyledHeader>
+          <StyledTrigger>Trigger text</StyledTrigger>
+        </StyledHeader>
+        <StyledPanel>Panel content</StyledPanel>
+      </StyledItem>
+    </StyledAccordion>
+  );
 };
 ```
 
@@ -138,9 +138,11 @@ import * as React from 'react';
 import * as AccordionPrimitive from '@radix-ui/react-accordion';
 
 const AccordionItem = React.forwardRef<
-	React.ElementRef<typeof AccordionPrimitive.Item>,
-	React.ComponentPropsWithoutRef<typeof AccordionPrimitive.Item>
->((props, forwardedRef) => <AccordionPrimitive.Item {...props} ref={forwardedRef} />);
+  React.ElementRef<typeof AccordionPrimitive.Item>,
+  React.ComponentPropsWithoutRef<typeof AccordionPrimitive.Item>
+>((props, forwardedRef) => (
+  <AccordionPrimitive.Item {...props} ref={forwardedRef} />
+));
 AccordionItem.displayName = 'AccordionItem';
 ```
 

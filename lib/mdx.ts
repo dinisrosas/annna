@@ -17,58 +17,58 @@ export const DATA_PATH = path.join(ROOT_PATH, 'data');
 
 // the front matter and content of all mdx files based on `docsPaths`
 export const getAllFrontmatter = (fromPath) => {
-	const PATH = path.join(DATA_PATH, fromPath);
-	const paths = glob.sync(`${PATH}/**/*.mdx`);
+  const PATH = path.join(DATA_PATH, fromPath);
+  const paths = glob.sync(`${PATH}/**/*.mdx`);
 
-	return paths
-		.map((filePath) => {
-			const source = fs.readFileSync(path.join(filePath), 'utf8');
-			const { data, content } = matter(source);
+  return paths
+    .map((filePath) => {
+      const source = fs.readFileSync(path.join(filePath), 'utf8');
+      const { data, content } = matter(source);
 
-			return {
-				...(data as Frontmatter),
-				slug: filePath
-					.replace(`${DATA_PATH}/`, '')
-					.replace('case-studies', 'casos-de-estudo')
-					.replace('.mdx', ''),
-				readingTime: readingTime(content)
-			} as Frontmatter;
-		})
-		.sort((a, b) => Number(new Date(b.publishedAt)) - Number(new Date(a.publishedAt)));
+      return {
+        ...(data as Frontmatter),
+        slug: filePath
+          .replace(`${DATA_PATH}/`, '')
+          .replace('case-studies', 'casos-de-estudo')
+          .replace('.mdx', ''),
+        readingTime: readingTime(content),
+      } as Frontmatter;
+    })
+    .sort((a, b) => Number(new Date(b.publishedAt)) - Number(new Date(a.publishedAt)));
 };
 
 export const getMdxBySlug = async (basePath, slug) => {
-	const source = fs.readFileSync(path.join(DATA_PATH, basePath, `${slug}.mdx`), 'utf8');
-	const { frontmatter, code } = await bundleMDX(source, {
-		xdmOptions(input, options) {
-			options.remarkPlugins = [...(options.remarkPlugins ?? []), remarkSlug, remarkHeroTemplate];
-			options.rehypePlugins = [
-				...(options.rehypePlugins ?? []),
-				rehypeMetaAttribute,
+  const source = fs.readFileSync(path.join(DATA_PATH, basePath, `${slug}.mdx`), 'utf8');
+  const { frontmatter, code } = await bundleMDX(source, {
+    xdmOptions(input, options) {
+      options.remarkPlugins = [...(options.remarkPlugins ?? []), remarkSlug, remarkHeroTemplate];
+      options.rehypePlugins = [
+        ...(options.rehypePlugins ?? []),
+        rehypeMetaAttribute,
 
-				rehypeHighlightCode
-			];
+        rehypeHighlightCode,
+      ];
 
-			return options;
-		}
-	});
+      return options;
+    },
+  });
 
-	return {
-		frontmatter: {
-			...(frontmatter as Frontmatter),
-			slug,
-			readingTime: readingTime(code)
-		} as Frontmatter,
-		code
-	};
+  return {
+    frontmatter: {
+      ...(frontmatter as Frontmatter),
+      slug,
+      readingTime: readingTime(code),
+    } as Frontmatter,
+    code,
+  };
 };
 
 export function getAllVersionsFromPath(fromPath) {
-	const PATH = path.join(DATA_PATH, fromPath);
-	if (!fs.existsSync(PATH)) return [];
-	return fs
-		.readdirSync(PATH)
-		.map((fileName) => fileName.replace('.mdx', ''))
-		.sort(compareVersions)
-		.reverse();
+  const PATH = path.join(DATA_PATH, fromPath);
+  if (!fs.existsSync(PATH)) return [];
+  return fs
+    .readdirSync(PATH)
+    .map((fileName) => fileName.replace('.mdx', ''))
+    .sort(compareVersions)
+    .reverse();
 }

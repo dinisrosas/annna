@@ -114,23 +114,23 @@ import { Box } from '@modulz/design-system';
 import { Line, LineChart } from 'recharts';
 
 const data = [
-	{ uv: 0 },
-	{ uv: 30 },
-	{ uv: 75 },
-	{ uv: 150 },
-	{ uv: 270 },
-	{ uv: 350 },
-	{ uv: 320 },
-	{ uv: 500 }
+  { uv: 0 },
+  { uv: 30 },
+  { uv: 75 },
+  { uv: 150 },
+  { uv: 270 },
+  { uv: 350 },
+  { uv: 320 },
+  { uv: 500 },
 ];
 
 export function MainHeroScrollArea() {
-	return (
-		<Box>
-			<LineChart width={250} height={250} data={data}>
-				<Line type="monotone" dataKey="uv" stroke="#8884d8" />
-				{/* <CartesianGrid stroke="#ccc" strokeDasharray="5 5"  /> */}
-			</LineChart>
-		</Box>
-	);
+  return (
+    <Box>
+      <LineChart width={250} height={250} data={data}>
+        <Line type="monotone" dataKey="uv" stroke="#8884d8" />
+        {/* <CartesianGrid stroke="#ccc" strokeDasharray="5 5"  /> */}
+      </LineChart>
+    </Box>
+  );
 }

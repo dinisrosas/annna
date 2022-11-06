@@ -6,15 +6,17 @@ name: scroll-area
 
 # Scroll Area
 
-<Description>Augments native scroll functionality for custom, cross-browser styling.</Description>
+<Description>
+  Augments native scroll functionality for custom, cross-browser styling.
+</Description>
 
 <Highlights
-	features={[
-		'Scrollbar sits on top of the scrollable content, taking up no space.',
-		'Scrolling is native; no underlying position movements via CSS transformations.',
-		'Shims pointer behaviors only when interacting with the controls, so keyboard controls are unaffected.',
-		'Supports RTL'
-	]}
+  features={[
+    'Scrollbar sits on top of the scrollable content, taking up no space.',
+    'Scrolling is native; no underlying position movements via CSS transformations.',
+    'Shims pointer behaviors only when interacting with the controls, so keyboard controls are unaffected.',
+    'Supports RTL',
+  ]}
 />
 
 ## Installation
@@ -33,16 +35,16 @@ Import all parts and piece them together.
 import * as ScrollArea from '@radix-ui/react-scroll-area';
 
 export default () => (
-	<ScrollArea.Root>
-		<ScrollArea.Viewport />
-		<ScrollArea.Scrollbar orientation="horizontal">
-			<ScrollArea.Thumb />
-		</ScrollArea.Scrollbar>
-		<ScrollArea.Scrollbar orientation="vertical">
-			<ScrollArea.Thumb />
-		</ScrollArea.Scrollbar>
-		<ScrollArea.Corner />
-	</ScrollArea.Root>
+  <ScrollArea.Root>
+    <ScrollArea.Viewport />
+    <ScrollArea.Scrollbar orientation="horizontal">
+      <ScrollArea.Thumb />
+    </ScrollArea.Scrollbar>
+    <ScrollArea.Scrollbar orientation="vertical">
+      <ScrollArea.Thumb />
+    </ScrollArea.Scrollbar>
+    <ScrollArea.Corner />
+  </ScrollArea.Root>
 );
 ```
 
@@ -53,62 +55,64 @@ export default () => (
 Contains all the parts of a scroll area.
 
 <PropsTable
-	data={[
-		{
-			name: 'as',
-			required: false,
-			type: 'keyof JSX.IntrinsicElements | React.ComponentType<any>',
-			typeSimple: 'enum',
-			default: 'div',
-			description:
-				'Change the component to a different HTML tag or custom component. This will merge the original component props with the props of the supplied element/component and change the underlying DOM node.'
-		},
-		{
-			name: 'type',
-			type: '"auto" | "always" | "scroll" | "hover"',
-			typeSimple: 'enum',
-			default: '"hover"',
-			description: (
-				<span>
-					Describes the nature of scrollbar visibility, similar to how the scrollbar preferences in
-					MacOS control visibility of native scrollbars.
-					<br />
-					<br />
-					<Code>"auto"</Code> means that scrollbars are visible when content is overflowing on the corresponding
-					orientation.
-					<br />
-					<Code>"always"</Code> means that scrollbars are always visible regardless of whether the content
-					is overflowing.
-					<br />
-					<Code>"scroll"</Code> means that scrollbars are visible when the user is scrolling along its
-					corresponding orientation.
-					<br />
-					<Code>"hover"</Code> when the user is scrolling along its corresponding orientation and when
-					the user is hovering over the scroll area.
-				</span>
-			)
-		},
-		{
-			name: 'scrollHideDelay',
-			type: 'number',
-			default: '600',
-			description: (
-				<span>
-					If <Code>type</Code> is set to either <Code>"scroll"</Code> or <Code>"hover"</Code>, this
-					prop determines the length of time, in milliseconds, before the scrollbars are hidden
-					after the user stops interacting with scrollbars.
-				</span>
-			)
-		},
-		{
-			name: 'dir',
-			required: false,
-			type: '"ltr" | "rtl"',
-			typeSimple: 'enum',
-			description:
-				'The reading direction of the scroll area. If omitted, assumes LTR (left-to-right) reading mode.'
-		}
-	]}
+  data={[
+    {
+      name: 'as',
+      required: false,
+      type: 'keyof JSX.IntrinsicElements | React.ComponentType<any>',
+      typeSimple: 'enum',
+      default: 'div',
+      description:
+        'Change the component to a different HTML tag or custom component. This will merge the original component props with the props of the supplied element/component and change the underlying DOM node.',
+    },
+    {
+      name: 'type',
+      type: '"auto" | "always" | "scroll" | "hover"',
+      typeSimple: 'enum',
+      default: '"hover"',
+      description: (
+        <span>
+          Describes the nature of scrollbar visibility, similar to how the
+          scrollbar preferences in MacOS control visibility of native
+          scrollbars.
+          <br />
+          <br />
+          <Code>"auto"</Code> means that scrollbars are visible when content is overflowing
+          on the corresponding orientation.
+          <br />
+          <Code>"always"</Code> means that scrollbars are always visible regardless
+          of whether the content is overflowing.
+          <br />
+          <Code>"scroll"</Code> means that scrollbars are visible when the user is
+          scrolling along its corresponding orientation.
+          <br />
+          <Code>"hover"</Code> when the user is scrolling along its corresponding
+          orientation and when the user is hovering over the scroll area.
+        </span>
+      ),
+    },
+    {
+      name: 'scrollHideDelay',
+      type: 'number',
+      default: '600',
+      description: (
+        <span>
+          If <Code>type</Code> is set to either <Code>"scroll"</Code> or{' '}
+          <Code>"hover"</Code>, this prop determines the length of time, in
+          milliseconds, before the scrollbars are hidden after the user stops
+          interacting with scrollbars.
+        </span>
+      ),
+    },
+    {
+      name: 'dir',
+      required: false,
+      type: '"ltr" | "rtl"',
+      typeSimple: 'enum',
+      description:
+        'The reading direction of the scroll area. If omitted, assumes LTR (left-to-right) reading mode.',
+    },
+  ]}
 />
 
 ### Viewport
@@ -116,17 +120,17 @@ Contains all the parts of a scroll area.
 The viewport area of the scroll area.
 
 <PropsTable
-	data={[
-		{
-			name: 'as',
-			required: false,
-			type: 'keyof JSX.IntrinsicElements | React.ComponentType<any>',
-			typeSimple: 'enum',
-			default: 'div',
-			description:
-				'Change the component to a different HTML tag or custom component. This will merge the original component props with the props of the supplied element/component and change the underlying DOM node.'
-		}
-	]}
+  data={[
+    {
+      name: 'as',
+      required: false,
+      type: 'keyof JSX.IntrinsicElements | React.ComponentType<any>',
+      typeSimple: 'enum',
+      default: 'div',
+      description:
+        'Change the component to a different HTML tag or custom component. This will merge the original component props with the props of the supplied element/component and change the underlying DOM node.',
+    },
+  ]}
 />
 
 ### Scrollbar
@@ -134,35 +138,35 @@ The viewport area of the scroll area.
 The horizontal scrollbar.
 
 <PropsTable
-	data={[
-		{
-			name: 'as',
-			required: false,
-			type: 'keyof JSX.IntrinsicElements | React.ComponentType<any>',
-			typeSimple: 'enum',
-			default: 'div',
-			description:
-				'Change the component to a different HTML tag or custom component. This will merge the original component props with the props of the supplied element/component and change the underlying DOM node.'
-		},
-		{
-			name: 'forceMount',
-			type: 'boolean',
-			description: (
-				<span>
-					Used to force mounting when more control is needed. Useful when controlling animation with
-					React animation libraries.
-				</span>
-			)
-		},
-		{
-			name: 'orientation',
-			required: false,
-			type: '"horizontal" | "vertical"',
-			typeSimple: 'enum',
-			default: 'vertical',
-			description: 'The orientation of the scrollbar'
-		}
-	]}
+  data={[
+    {
+      name: 'as',
+      required: false,
+      type: 'keyof JSX.IntrinsicElements | React.ComponentType<any>',
+      typeSimple: 'enum',
+      default: 'div',
+      description:
+        'Change the component to a different HTML tag or custom component. This will merge the original component props with the props of the supplied element/component and change the underlying DOM node.',
+    },
+    {
+      name: 'forceMount',
+      type: 'boolean',
+      description: (
+        <span>
+          Used to force mounting when more control is needed. Useful when
+          controlling animation with React animation libraries.
+        </span>
+      ),
+    },
+    {
+      name: 'orientation',
+      required: false,
+      type: '"horizontal" | "vertical"',
+      typeSimple: 'enum',
+      default: 'vertical',
+      description: 'The orientation of the scrollbar',
+    },
+  ]}
 />
 
 ### Thumb
@@ -170,17 +174,17 @@ The horizontal scrollbar.
 The thumb to be used in `ScrollArea.Scrollbar`.
 
 <PropsTable
-	data={[
-		{
-			name: 'as',
-			required: false,
-			type: 'keyof JSX.IntrinsicElements | React.ComponentType<any>',
-			typeSimple: 'enum',
-			default: 'div',
-			description:
-				'Change the component to a different HTML tag or custom component. This will merge the original component props with the props of the supplied element/component and change the underlying DOM node.'
-		}
-	]}
+  data={[
+    {
+      name: 'as',
+      required: false,
+      type: 'keyof JSX.IntrinsicElements | React.ComponentType<any>',
+      typeSimple: 'enum',
+      default: 'div',
+      description:
+        'Change the component to a different HTML tag or custom component. This will merge the original component props with the props of the supplied element/component and change the underlying DOM node.',
+    },
+  ]}
 />
 
 ### Corner
@@ -188,17 +192,17 @@ The thumb to be used in `ScrollArea.Scrollbar`.
 The corner where both vertical and horizontal scrollbars meet.
 
 <PropsTable
-	data={[
-		{
-			name: 'as',
-			required: false,
-			type: 'keyof JSX.IntrinsicElements | React.ComponentType<any>',
-			typeSimple: 'enum',
-			default: 'div',
-			description:
-				'Change the component to a different HTML tag or custom component. This will merge the original component props with the props of the supplied element/component and change the underlying DOM node.'
-		}
-	]}
+  data={[
+    {
+      name: 'as',
+      required: false,
+      type: 'keyof JSX.IntrinsicElements | React.ComponentType<any>',
+      typeSimple: 'enum',
+      default: 'div',
+      description:
+        'Change the component to a different HTML tag or custom component. This will merge the original component props with the props of the supplied element/component and change the underlying DOM node.',
+    },
+  ]}
 />
 
 ## Accessibility

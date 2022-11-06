@@ -16,48 +16,47 @@ import { FancyBackground } from '@components/marketing/FancyBackground';
 import { StatsSection } from '@components/marketing/StatsSection';
 
 export default function PrimitivesHome() {
-	return (
-		<Box>
-			<TitleAndMetaTags
-				title="Triplique o seu trafégo orgânico | Annna"
-				description="Aumentamos as visitas
-        orgânicas do seu website
+  return (
+    <Box>
+      <TitleAndMetaTags
+        title="Triplique o seu trafégo orgânico | Annna"
+        description="Aumentamos o trafégo orgânico do seu website
         em 357% em menos de 10 semanas"
-				image="default.png"
-			/>
+        image="default.png"
+      />
 
-			<FancyBackground>
-				<DefaultHeader />
-				<MainHero />
-			</FancyBackground>
+      <FancyBackground>
+        <DefaultHeader />
+        <MainHero />
+      </FancyBackground>
 
-			<CommunitySection />
+      <CommunitySection />
 
-			<Container size="3">
-				<Separator size="2" />
-			</Container>
+      <Container size="3">
+        <Separator size="2" />
+      </Container>
 
-			<CaseStudiesSection />
+      <Container size="3">
+        <Separator size="2" />
+      </Container>
 
-			<Container size="3">
-				<Separator size="2" />
-			</Container>
+      <Box css={{ overflow: 'hidden' }}>
+        <BenefitsSection />
+        <StatsSection />
+      </Box>
 
-			<Box css={{ overflow: 'hidden' }}>
-				<BenefitsSection />
-				<StatsSection />
-			</Box>
+      <CaseStudiesSection />
 
-			<ComponentHighlightsSection />
+      <ComponentHighlightsSection />
 
-			{/* <AccessibilitySection /> */}
-			{/* <DeveloperExperienceSection /> */}
+      {/* <AccessibilitySection /> */}
+      {/* <DeveloperExperienceSection /> */}
 
-			<AdoptionSection />
+      <AdoptionSection />
 
-			<Container size="3">
-				<Footer />
-			</Container>
-		</Box>
-	);
+      <Container size="3">
+        <Footer />
+      </Container>
+    </Box>
+  );
 }

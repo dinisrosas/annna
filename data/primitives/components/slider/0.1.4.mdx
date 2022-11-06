@@ -7,17 +7,19 @@ aria: https://www.w3.org/WAI/ARIA/apg/patterns/slidertwothumb
 
 # Slider
 
-<Description>An input where the user selects a value from within a given range.</Description>
+<Description>
+  An input where the user selects a value from within a given range.
+</Description>
 
 <Highlights
-	features={[
-		'Can be controlled or uncontrolled.',
-		'Supports multiple thumbs.',
-		'Supports a minimum value between thumbs.',
-		'Supports touch or click on track to update value.',
-		'Supports Right to Left direction.',
-		'Full keyboard navigation.'
-	]}
+  features={[
+    'Can be controlled or uncontrolled.',
+    'Supports multiple thumbs.',
+    'Supports a minimum value between thumbs.',
+    'Supports touch or click on track to update value.',
+    'Supports Right to Left direction.',
+    'Full keyboard navigation.',
+  ]}
 />
 
 ## Installation
@@ -36,12 +38,12 @@ Import all parts and piece them together.
 import * as Slider from '@radix-ui/react-slider';
 
 export default () => (
-	<Slider.Root>
-		<Slider.Track>
-			<Slider.Range />
-		</Slider.Track>
-		<Slider.Thumb />
-	</Slider.Root>
+  <Slider.Root>
+    <Slider.Track>
+      <Slider.Range />
+    </Slider.Track>
+    <Slider.Thumb />
+  </Slider.Root>
 );
 ```
 
@@ -52,108 +54,109 @@ export default () => (
 Contains all the parts of a slider. It will render an `input` for each thumb when used within a `form` to ensure events propagate correctly.
 
 <PropsTable
-	data={[
-		{
-			name: 'asChild',
-			required: false,
-			type: 'boolean',
-			default: 'false',
-			description:
-				'Change the component to the HTML tag or custom component of the only child. This will merge the original component props with the props of the supplied element/component and change the underlying DOM node.'
-		},
-		{
-			name: 'defaultValue',
-			required: false,
-			type: 'number[]',
-			description:
-				'The value of the slider when initially rendered. Use when you do not need to control the state of the slider.'
-		},
-		{
-			name: 'value',
-			required: false,
-			type: 'number[]',
-			description: (
-				<span>
-					The controlled value of the slider. Must be used in conjunction with{' '}
-					<Code>onValueChange</Code>.
-				</span>
-			)
-		},
-		{
-			name: 'name',
-			required: false,
-			type: 'string',
-			description:
-				'The name of the slider. Submitted with its owning form as part of a name/value pair.'
-		},
-		{
-			name: 'disabled',
-			required: false,
-			type: 'boolean',
-			default: 'false',
-			description: (
-				<span>
-					When <Code>true</Code>, prevents the user from interacting with the slider.
-				</span>
-			)
-		},
-		{
-			name: 'orientation',
-			required: false,
-			type: '"horizontal" | "vertical"',
-			typeSimple: 'enum',
-			default: '"horizontal"',
-			description: 'The orientation of the slider.'
-		},
-		{
-			name: 'dir',
-			required: false,
-			type: '"ltr" | "rtl"',
-			typeSimple: 'enum',
-			default: '"ltr"',
-			description:
-				'The reading direction of the slider. If omitted, assumes LTR (left-to-right) reading mode.'
-		},
-		{
-			name: 'min',
-			required: false,
-			type: 'number',
-			default: '0',
-			description: 'The minimum value for the range.'
-		},
-		{
-			name: 'max',
-			required: false,
-			type: 'number',
-			default: '100',
-			description: 'The maximum value for the range.'
-		},
-		{
-			name: 'step',
-			required: false,
-			type: 'number',
-			default: '1',
-			description: 'The stepping interval.'
-		},
-		{
-			name: 'onValueChange',
-			required: false,
-			type: 'onValueChange?(value: number[]): void',
-			typeSimple: 'function',
-			description: 'Event handler called when the value changes.'
-		},
-		{
-			name: 'minStepsBetweenThumbs',
-			required: false,
-			type: 'number',
-			default: '0',
-			description: (
-				<span>
-					The minimum permitted <Code>step</Code>s between multiple thumbs.
-				</span>
-			)
-		}
-	]}
+  data={[
+    {
+      name: 'asChild',
+      required: false,
+      type: 'boolean',
+      default: 'false',
+      description:
+        'Change the component to the HTML tag or custom component of the only child. This will merge the original component props with the props of the supplied element/component and change the underlying DOM node.',
+    },
+    {
+      name: 'defaultValue',
+      required: false,
+      type: 'number[]',
+      description:
+        'The value of the slider when initially rendered. Use when you do not need to control the state of the slider.',
+    },
+    {
+      name: 'value',
+      required: false,
+      type: 'number[]',
+      description: (
+        <span>
+          The controlled value of the slider. Must be used in conjunction with{' '}
+          <Code>onValueChange</Code>.
+        </span>
+      ),
+    },
+    {
+      name: 'name',
+      required: false,
+      type: 'string',
+      description:
+        'The name of the slider. Submitted with its owning form as part of a name/value pair.',
+    },
+    {
+      name: 'disabled',
+      required: false,
+      type: 'boolean',
+      default: 'false',
+      description: (
+        <span>
+          When <Code>true</Code>, prevents the user from interacting with the
+          slider.
+        </span>
+      ),
+    },
+    {
+      name: 'orientation',
+      required: false,
+      type: '"horizontal" | "vertical"',
+      typeSimple: 'enum',
+      default: '"horizontal"',
+      description: 'The orientation of the slider.',
+    },
+    {
+      name: 'dir',
+      required: false,
+      type: '"ltr" | "rtl"',
+      typeSimple: 'enum',
+      default: '"ltr"',
+      description:
+        'The reading direction of the slider. If omitted, assumes LTR (left-to-right) reading mode.',
+    },
+    {
+      name: 'min',
+      required: false,
+      type: 'number',
+      default: '0',
+      description: 'The minimum value for the range.',
+    },
+    {
+      name: 'max',
+      required: false,
+      type: 'number',
+      default: '100',
+      description: 'The maximum value for the range.',
+    },
+    {
+      name: 'step',
+      required: false,
+      type: 'number',
+      default: '1',
+      description: 'The stepping interval.',
+    },
+    {
+      name: 'onValueChange',
+      required: false,
+      type: 'onValueChange?(value: number[]): void',
+      typeSimple: 'function',
+      description: 'Event handler called when the value changes.',
+    },
+    {
+      name: 'minStepsBetweenThumbs',
+      required: false,
+      type: 'number',
+      default: '0',
+      description: (
+        <span>
+          The minimum permitted <Code>step</Code>s between multiple thumbs.
+        </span>
+      ),
+    },
+  ]}
 />
 
 ### Track
@@ -161,16 +164,16 @@ Contains all the parts of a slider. It will render an `input` for each thumb whe
 The track that contains the `Slider.Range`.
 
 <PropsTable
-	data={[
-		{
-			name: 'asChild',
-			required: false,
-			type: 'boolean',
-			default: 'false',
-			description:
-				'Change the component to the HTML tag or custom component of the only child. This will merge the original component props with the props of the supplied element/component and change the underlying DOM node.'
-		}
-	]}
+  data={[
+    {
+      name: 'asChild',
+      required: false,
+      type: 'boolean',
+      default: 'false',
+      description:
+        'Change the component to the HTML tag or custom component of the only child. This will merge the original component props with the props of the supplied element/component and change the underlying DOM node.',
+    },
+  ]}
 />
 
 ### Range
@@ -178,16 +181,16 @@ The track that contains the `Slider.Range`.
 The range part. Must live inside `Slider.Track`.
 
 <PropsTable
-	data={[
-		{
-			name: 'asChild',
-			required: false,
-			type: 'boolean',
-			default: 'false',
-			description:
-				'Change the component to the HTML tag or custom component of the only child. This will merge the original component props with the props of the supplied element/component and change the underlying DOM node.'
-		}
-	]}
+  data={[
+    {
+      name: 'asChild',
+      required: false,
+      type: 'boolean',
+      default: 'false',
+      description:
+        'Change the component to the HTML tag or custom component of the only child. This will merge the original component props with the props of the supplied element/component and change the underlying DOM node.',
+    },
+  ]}
 />
 
 ### Thumb
@@ -195,16 +198,16 @@ The range part. Must live inside `Slider.Track`.
 A draggable thumb. You can render multiple thumbs.
 
 <PropsTable
-	data={[
-		{
-			name: 'asChild',
-			required: false,
-			type: 'boolean',
-			default: 'false',
-			description:
-				'Change the component to the HTML tag or custom component of the only child. This will merge the original component props with the props of the supplied element/component and change the underlying DOM node.'
-		}
-	]}
+  data={[
+    {
+      name: 'asChild',
+      required: false,
+      type: 'boolean',
+      default: 'false',
+      description:
+        'Change the component to the HTML tag or custom component of the only child. This will merge the original component props with the props of the supplied element/component and change the underlying DOM node.',
+    },
+  ]}
 />
 
 ## Examples
@@ -217,12 +220,12 @@ Use the `orientation` prop to create a vertical slider.
 import * as Slider from '@radix-ui/react-slider';
 
 export default () => (
-	<Slider.Root defaultValue={[50]} __orientation__="vertical">
-		<Slider.Track>
-			<Slider.Range />
-		</Slider.Track>
-		<Slider.Thumb />
-	</Slider.Root>
+  <Slider.Root defaultValue={[50]} __orientation__="vertical">
+    <Slider.Track>
+      <Slider.Range />
+    </Slider.Track>
+    <Slider.Thumb />
+  </Slider.Root>
 );
 ```
 
@@ -252,12 +255,12 @@ Use the `step` prop to increase the stepping interval.
 import * as Slider from '@radix-ui/react-slider';
 
 export default () => (
-	<Slider.Root defaultValue={[50]} __step__={10}>
-		<Slider.Track>
-			<Slider.Range />
-		</Slider.Track>
-		<Slider.Thumb />
-	</Slider.Root>
+  <Slider.Root defaultValue={[50]} __step__={10}>
+    <Slider.Track>
+      <Slider.Range />
+    </Slider.Track>
+    <Slider.Thumb />
+  </Slider.Root>
 );
 ```
 
@@ -269,13 +272,13 @@ Use `minStepsBetweenThumbs` to avoid thumbs with equal values.
 import * as Slider from '@radix-ui/react-slider';
 
 export default () => (
-	<Slider.Root defaultValue={[25, 75]} step={10} __minStepsBetweenThumbs__={1}>
-		<Slider.Track>
-			<Slider.Range />
-		</Slider.Track>
-		<Slider.Thumb />
-		<Slider.Thumb />
-	</Slider.Root>
+  <Slider.Root defaultValue={[25, 75]} step={10} __minStepsBetweenThumbs__={1}>
+    <Slider.Track>
+      <Slider.Range />
+    </Slider.Track>
+    <Slider.Thumb />
+    <Slider.Thumb />
+  </Slider.Root>
 );
 ```
 
@@ -286,82 +289,82 @@ Adheres to the [Slider WAI-ARIA design pattern](https://www.w3.org/WAI/ARIA/apg/
 ### Keyboard Interactions
 
 <KeyboardTable
-	data={[
-		{
-			keys: ['ArrowRight'],
-			description: (
-				<span>
-					Increments/decrements by the <Code>step</Code> value depending on <Code>orientation</Code>
-					.
-				</span>
-			)
-		},
-		{
-			keys: ['ArrowLeft'],
-			description: (
-				<span>
-					Increments/decrements by the <Code>step</Code> value depending on <Code>orientation</Code>
-					.
-				</span>
-			)
-		},
-		{
-			keys: ['ArrowUp'],
-			description: (
-				<span>
-					Increases the value by the <Code>step</Code> amount.
-				</span>
-			)
-		},
-		{
-			keys: ['ArrowDown'],
-			description: (
-				<span>
-					Decreases the value by the <Code>step</Code> amount.
-				</span>
-			)
-		},
-		{
-			keys: ['PageUp'],
-			description: (
-				<span>
-					Increases the value by a larger <Code>step</Code>.
-				</span>
-			)
-		},
-		{
-			keys: ['PageDown'],
-			description: (
-				<span>
-					Decreases the value by a larger <Code>step</Code>.
-				</span>
-			)
-		},
-		{
-			keys: ['Shift + ArrowUp'],
-			description: (
-				<span>
-					Increases the value by a larger <Code>step</Code>.
-				</span>
-			)
-		},
-		{
-			keys: ['Shift + ArrowDown'],
-			description: (
-				<span>
-					Decreases the value by a larger <Code>step</Code>.
-				</span>
-			)
-		},
-		{
-			keys: ['Home'],
-			description: 'Sets the value to its minimum.'
-		},
-		{
-			keys: ['End'],
-			description: 'Sets the value to its maximum.'
-		}
-	]}
+  data={[
+    {
+      keys: ['ArrowRight'],
+      description: (
+        <span>
+          Increments/decrements by the <Code>step</Code> value depending on{' '}
+          <Code>orientation</Code>.
+        </span>
+      ),
+    },
+    {
+      keys: ['ArrowLeft'],
+      description: (
+        <span>
+          Increments/decrements by the <Code>step</Code> value depending on{' '}
+          <Code>orientation</Code>.
+        </span>
+      ),
+    },
+    {
+      keys: ['ArrowUp'],
+      description: (
+        <span>
+          Increases the value by the <Code>step</Code> amount.
+        </span>
+      ),
+    },
+    {
+      keys: ['ArrowDown'],
+      description: (
+        <span>
+          Decreases the value by the <Code>step</Code> amount.
+        </span>
+      ),
+    },
+    {
+      keys: ['PageUp'],
+      description: (
+        <span>
+          Increases the value by a larger <Code>step</Code>.
+        </span>
+      ),
+    },
+    {
+      keys: ['PageDown'],
+      description: (
+        <span>
+          Decreases the value by a larger <Code>step</Code>.
+        </span>
+      ),
+    },
+    {
+      keys: ['Shift + ArrowUp'],
+      description: (
+        <span>
+          Increases the value by a larger <Code>step</Code>.
+        </span>
+      ),
+    },
+    {
+      keys: ['Shift + ArrowDown'],
+      description: (
+        <span>
+          Decreases the value by a larger <Code>step</Code>.
+        </span>
+      ),
+    },
+    {
+      keys: ['Home'],
+      description: 'Sets the value to its minimum.',
+    },
+    {
+      keys: ['End'],
+      description: 'Sets the value to its maximum.',
+    },
+  ]}
 />
 
 ## Custom APIs
@@ -387,17 +390,17 @@ export default () => <Slider defaultValue={[25]} />;
 import * as SliderPrimitive from '@radix-ui/react-slider';
 
 export const Slider = React.forwardRef((props, forwardedRef) => {
-	const value = props.value || props.defaultValue;
+  const value = props.value || props.defaultValue;
 
-	return (
-		<SliderPrimitive.Slider {...props} ref={forwardedRef}>
-			<SliderPrimitive.Track>
-				<SliderPrimitive.Range />
-			</SliderPrimitive.Track>
-			{value.map((_, i) => (
-				<SliderThumb key={i} />
-			))}
-		</SliderPrimitive.Slider>
-	);
+  return (
+    <SliderPrimitive.Slider {...props} ref={forwardedRef}>
+      <SliderPrimitive.Track>
+        <SliderPrimitive.Range />
+      </SliderPrimitive.Track>
+      {value.map((_, i) => (
+        <SliderThumb key={i} />
+      ))}
+    </SliderPrimitive.Slider>
+  );
 });
 ```

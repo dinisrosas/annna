@@ -9,7 +9,7 @@ name: aspect-ratio
 <Description>Displays content within a desired ratio.</Description>
 
 <HeroContainer>
-	<AspectRatioDemo />
+  <AspectRatioDemo />
 </HeroContainer>
 
 ```jsx hero template=AspectRatio
@@ -43,20 +43,20 @@ export default () => <AspectRatio.Root />;
 Contains the content you want to constrain to a given ratio.
 
 <PropsTable
-	data={[
-		{
-			name: 'asChild',
-			required: false,
-			type: 'boolean',
-			default: 'false',
-			description:
-				'Change the component to the HTML tag or custom component of the only child. This will merge the original component props with the props of the supplied element/component and change the underlying DOM node.'
-		},
-		{
-			name: 'ratio',
-			type: 'number',
-			default: '1',
-			description: 'The desired ratio'
-		}
-	]}
+  data={[
+    {
+      name: 'asChild',
+      required: false,
+      type: 'boolean',
+      default: 'false',
+      description:
+        'Change the component to the HTML tag or custom component of the only child. This will merge the original component props with the props of the supplied element/component and change the underlying DOM node.',
+    },
+    {
+      name: 'ratio',
+      type: 'number',
+      default: '1',
+      description: 'The desired ratio',
+    },
+  ]}
 />

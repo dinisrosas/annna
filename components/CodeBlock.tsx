@@ -21,47 +21,47 @@ refractor.register(diff);
 type PreProps = Omit<React.ComponentProps<typeof Pre>, 'css'>;
 
 type CodeBlockProps = PreProps & {
-	language: 'js' | 'jsx' | 'bash' | 'css' | 'diff';
-	value: string;
-	line?: string;
-	css?: any;
-	showLineNumbers?: boolean;
+  language: 'js' | 'jsx' | 'bash' | 'css' | 'diff';
+  value: string;
+  line?: string;
+  css?: any;
+  showLineNumbers?: boolean;
 };
 
 export const CodeBlock = React.forwardRef<HTMLPreElement, CodeBlockProps>(
-	(_props, forwardedRef) => {
-		const {
-			language,
-			value,
-			line = '0',
-			className = '',
-			css,
-			variant,
-			showLineNumbers,
-			...props
-		} = _props;
-		let result = refractor.highlight(value, language);
+  (_props, forwardedRef) => {
+    const {
+      language,
+      value,
+      line = '0',
+      className = '',
+      css,
+      variant,
+      showLineNumbers,
+      ...props
+    } = _props;
+    let result = refractor.highlight(value, language);
 
-		result = highlightLine(result, rangeParser(line));
+    result = highlightLine(result, rangeParser(line));
 
-		result = highlightWord(result);
+    result = highlightWord(result);
 
-		// convert to html
-		result = hastToHtml(result);
+    // convert to html
+    result = hastToHtml(result);
 
-		const classes = `language-${language} ${className}`;
+    const classes = `language-${language} ${className}`;
 
-		return (
-			<Pre
-				ref={forwardedRef}
-				className={classes}
-				css={css}
-				variant={variant}
-				data-line-numbers={showLineNumbers}
-				{...props}
-			>
-				<code className={classes} dangerouslySetInnerHTML={{ __html: result }} />
-			</Pre>
-		);
-	}
+    return (
+      <Pre
+        ref={forwardedRef}
+        className={classes}
+        css={css}
+        variant={variant}
+        data-line-numbers={showLineNumbers}
+        {...props}
+      >
+        <code className={classes} dangerouslySetInnerHTML={{ __html: result }} />
+      </Pre>
+    );
+  }
 );
