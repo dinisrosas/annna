@@ -23,7 +23,14 @@ import { LogoLink } from './LogoLink';
 
 export const CaseStudiesSection = () => {
   return (
-    <Section id="casos-de-estudo">
+    <Section
+      id="casos-de-estudo"
+      css={{
+        position: 'relative',
+        backgroundImage: 'linear-gradient(to bottom, $slate2, $loContrast)',
+        overflow: 'hidden',
+      }}
+    >
       <Container size="3">
         <Box css={{ mb: '$5' }}>
           <MarketingCaption css={{ mb: '$1' }}>Os nossos clientes</MarketingCaption>
