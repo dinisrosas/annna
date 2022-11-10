@@ -418,7 +418,7 @@ export const ComponentHighlightsSection = () => {
                       </Text>
                     </Flex>
                     <Text size="3" variant="gray" css={{ lineHeight: 1.5, ml: '$6' }}>
-                      Aquisição de links externos em website de nicho adequados, relevantes e de
+                      Aquisição de links externos em websites de nicho relacionados, relevantes e de
                       autoridade na área.
                     </Text>
                   </Box>
