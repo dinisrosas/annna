@@ -47,10 +47,9 @@ export const AdoptionSection = () => {
               Apesar de tudo, podemos não ser a melhor escolha para si.
             </Text>
             <Paragraph>
-              Temos todo o gosto em trabalhar consigo apenas se tem capacidade para lidar com um
-              aumento substancial de clientes. Se comunica frequente e honestamente. Se quer
-              terceirizar a aquisição de tráfego orgânico e se tem disponível um budget para
-              investir em marketing.
+              Por norma, trabalhamos apenas com empresas com faturação anual superior a 75,000€. Tem
+              capacidade para lidar com um aumento substancial de clientes? Comunica frequente e
+              honestamente? Se este é o seu caso, temos todo o gosto em trabalhar consigo.
             </Paragraph>
           </Box>
 
