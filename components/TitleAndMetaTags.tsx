@@ -12,7 +12,7 @@ type TitleAndMetaTagsProps = {
 
 export function TitleAndMetaTags({
   title = 'Annna',
-  description = 'Everything you need to build a design system, website or web app.',
+  description = 'Triplicamos o seu tráfego orgânico em menos de 10 semanas',
   image,
   url = 'https://www.annna.pt',
   pathname,
