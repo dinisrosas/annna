@@ -12,7 +12,7 @@ type TitleAndMetaTagsProps = {
 
 export function TitleAndMetaTags({
   title = 'Annna',
-  description = 'Triplicamos o seu tráfego orgânico em menos de 10 semanas',
+  description = 'Aumentamos o trafégo orgânico do seu website em 357% em menos de 10 semanas',
   image,
   url = 'https://www.annna.pt',
   pathname,

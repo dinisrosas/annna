@@ -34,7 +34,8 @@ export default function CaseStudy() {
         <Section>
           <Flex direction="column" align="center" css={{ textAlign: 'center', mb: '$5' }}>
             <Heading size="3" css={{ mb: '$2' }}>
-              Casos de estudo
+              {/* Casos de estudo */}
+              Os Nossos Clientes
             </Heading>
             <Paragraph size="2" css={{ maxWidth: 480, mb: '$3' }}>
               Trabalhamos com todo o tipo de empresas numa ampla variedade de projetos e
