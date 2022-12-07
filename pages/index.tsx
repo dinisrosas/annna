@@ -1,19 +1,15 @@
-import React from 'react';
-import { Box, Container, Separator } from '@modulz/design-system';
-import { TitleAndMetaTags } from '@components/TitleAndMetaTags';
-import { MainHero } from '@components/marketing/MainHero';
-import { ComponentHighlightsSection } from '@components/marketing/ComponentHighlightsSection';
-import { CaseStudiesSection } from '@components/marketing/CaseStudiesSection';
-import { BenefitsSection } from '@components/marketing/BenefitsSection';
-import { AccessibilitySection } from '@components/marketing/AccessibilitySection';
-import { DeveloperExperienceSection } from '@components/marketing/DeveloperExperienceSection';
-import { AdoptionSection } from '@components/marketing/AdoptionSection';
-import { CommunitySection } from '@components/marketing/CommunitySection';
-import { OtherProductsSection } from '@components/marketing/OtherProductsSection';
-import { Footer } from '@components/Footer';
 import { DefaultHeader } from '@components/DefaultHeader';
+import { Footer } from '@components/Footer';
+import { AdoptionSection } from '@components/marketing/AdoptionSection';
+import { BenefitsSection } from '@components/marketing/BenefitsSection';
+import { CaseStudiesSection } from '@components/marketing/CaseStudiesSection';
+import { CommunitySection } from '@components/marketing/CommunitySection';
+import { ComponentHighlightsSection } from '@components/marketing/ComponentHighlightsSection';
 import { FancyBackground } from '@components/marketing/FancyBackground';
+import { MainHero } from '@components/marketing/MainHero';
 import { StatsSection } from '@components/marketing/StatsSection';
+import { TitleAndMetaTags } from '@components/TitleAndMetaTags';
+import { Box, Container, Separator } from '@modulz/design-system';
 
 export default function PrimitivesHome() {
   return (

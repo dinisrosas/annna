@@ -1,25 +1,22 @@
-import React from 'react';
-import NextLink from 'next/link';
 import {
+  Avatar,
   Box,
-  Grid,
-  Text,
-  styled,
+  Card,
   Container,
   Flex,
+  Grid,
   Heading,
-  Section,
-  Card,
-  Avatar,
   Link,
-  Separator,
+  Section,
+  styled,
+  Text,
 } from '@modulz/design-system';
-import { ArrowRightIcon } from '@radix-ui/react-icons';
-import { MarketingButton } from './MarketingButton';
-import { MarketingCaption } from './MarketingCaption';
 import { Root as AccessibleIcon } from '@radix-ui/react-accessible-icon';
+import { ArrowRightIcon } from '@radix-ui/react-icons';
+import NextLink from 'next/link';
 import { CaseStudyLogo } from './CaseStudyLogo';
 import { LogoLink } from './LogoLink';
+import { MarketingCaption } from './MarketingCaption';
 
 export const CaseStudiesSection = () => {
   return (
@@ -39,7 +36,7 @@ export const CaseStudiesSection = () => {
           </Heading>
         </Box>
 
-        <Grid columns={{ '@bp2': 2 }} gap="5" css={{ mb: '$6' }}>
+        {/* <Grid columns={{ '@bp2': 2 }} gap="5" css={{ mb: '$6' }}>
           <Card variant="interactive">
             <Box css={{ p: '$5' }}>
               <Box css={{ mb: '$4' }}>
@@ -56,6 +53,7 @@ export const CaseStudiesSection = () => {
                   size="3"
                   src="/marketing/avatar-miguel-fonseca.jpg"
                   aria-describedby="person1"
+                  alt='Miguel Fonseca'
                 />
                 <Text variant="gray" size="3" id="person1" css={{ lineHeight: 1.5 }}>
                   Miguel Fonseca, Viajens El Corte Inglés
@@ -79,6 +77,7 @@ export const CaseStudiesSection = () => {
                   size="3"
                   src="/marketing/avatar-joao-barbosa.jpg"
                   aria-describedby="person2"
+                  alt='João Barbosa'
                 />
                 <Text variant="gray" size="3" id="person2" css={{ lineHeight: 1.5 }}>
                   João Barbosa, Abreu Logistics
@@ -86,16 +85,16 @@ export const CaseStudiesSection = () => {
               </Flex>
             </Box>
           </Card>
-        </Grid>
+        </Grid> */}
 
-        <Text variant="gray" css={{ mb: '$3' }}>
+        {/* <Text variant="gray" css={{ mb: '$3' }}>
           <NextLink href="/casos-de-estudo" passHref>
             <Link variant="subtle" css={{ display: 'inline-flex', alignItems: 'center' }}>
               E dezenas de outras empresas
               <ArrowRightIcon />
             </Link>
           </NextLink>
-        </Text>
+        </Text> */}
       </Container>
 
       <Container
@@ -117,53 +116,53 @@ export const CaseStudiesSection = () => {
         }}
       >
         <Grid flow="column" align="center" justify="start" gap="6">
-          {/* <NextLink href="/casos-de-estudo/portoeditora" passHref> */}
-          <LogoLink>
-            <AccessibleIcon label="Liveblocks case study">
-              <CaseStudyLogo variant="Porto Editora" height="35" />
-            </AccessibleIcon>
-          </LogoLink>
-          {/* </NextLink> */}
+          <NextLink href="/casos-de-estudo" passHref>
+            <LogoLink>
+              <AccessibleIcon label="Liveblocks case study">
+                <CaseStudyLogo variant="Porto Editora" height="35" />
+              </AccessibleIcon>
+            </LogoLink>
+          </NextLink>
 
-          {/* <NextLink href="/casos-de-estudo/ivocutelarias" passHref> */}
-          <LogoLink>
-            <AccessibleIcon label="Ivo Cutelarias caso de estudo">
-              <CaseStudyLogo variant="Ivo Cutelarias" height="42" />
-            </AccessibleIcon>
-          </LogoLink>
-          {/* </NextLink> */}
+          <NextLink href="/casos-de-estudo" passHref>
+            <LogoLink>
+              <AccessibleIcon label="Ivo Cutelarias caso de estudo">
+                <CaseStudyLogo variant="Ivo Cutelarias" height="42" />
+              </AccessibleIcon>
+            </LogoLink>
+          </NextLink>
 
-          {/* <NextLink href="/casos-de-estudo/rubisenergia" passHref> */}
-          <LogoLink>
-            <AccessibleIcon label="Rubis Gas case study">
-              <CaseStudyLogo variant="Rubis Gas" height="40" />
-            </AccessibleIcon>
-          </LogoLink>
-          {/* </NextLink> */}
+          <NextLink href="/casos-de-estudo" passHref>
+            <LogoLink>
+              <AccessibleIcon label="Rubis Gas case study">
+                <CaseStudyLogo variant="Rubis Gas" height="40" />
+              </AccessibleIcon>
+            </LogoLink>
+          </NextLink>
 
-          {/* <NextLink href="/casos-de-estudo/manitou" passHref> */}
-          <LogoLink>
-            <AccessibleIcon label="Manitou case study">
-              <CaseStudyLogo variant="Manitou" height="28" width="196" />
-            </AccessibleIcon>
-          </LogoLink>
-          {/* </NextLink> */}
+          <NextLink href="/casos-de-estudo/" passHref>
+            <LogoLink>
+              <AccessibleIcon label="Manitou case study">
+                <CaseStudyLogo variant="Manitou" height="28" width="196" />
+              </AccessibleIcon>
+            </LogoLink>
+          </NextLink>
 
-          {/* <NextLink href="/casos-de-estudo/porcel" passHref>
+          <NextLink href="/casos-de-estudo" passHref>
             <LogoLink>
               <AccessibleIcon label="Porcel caso de estudo">
                 <CaseStudyLogo variant="Porcel" height="35" />
               </AccessibleIcon>
             </LogoLink>
-          </NextLink> */}
+          </NextLink>
 
-          {/* <NextLink href="/casos-de-estudo/campera" passHref> */}
-          <LogoLink>
-            <AccessibleIcon label="Campera caso de estudo">
-              <CaseStudyLogo variant="Campera" height="40" />
-            </AccessibleIcon>
-          </LogoLink>
-          {/* </NextLink> */}
+          <NextLink href="/casos-de-estudo" passHref>
+            <LogoLink>
+              <AccessibleIcon label="Campera caso de estudo">
+                <CaseStudyLogo variant="Campera" height="40" />
+              </AccessibleIcon>
+            </LogoLink>
+          </NextLink>
 
           {/* Horizontal scroll spacer */}
           <Box css={{ width: 1, height: 1 }} />

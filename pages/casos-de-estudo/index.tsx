@@ -47,55 +47,55 @@ export default function CaseStudy() {
             columns={{ '@initial': 1, '@bp1': 2, '@bp2': 3 }}
             css={{ gap: 1, placeItems: 'stretch', gridAutoRows: '200px', mb: '$8' }}
           >
-            {/* <NextLink href="/casos-de-estudo/abreu" passHref> */}
-            <LogoLink variant="box">
-              <AccessibleIcon label="Abreu caso de estudo">
-                <Flex justify="center" align="center" css={{ height: '100%' }}>
-                  <CaseStudyLogo variant="Abreu" height="42" />
-                </Flex>
-              </AccessibleIcon>
-            </LogoLink>
-            {/* </NextLink> */}
+            <NextLink href="/casos-de-estudo" passHref>
+              <LogoLink variant="box">
+                <AccessibleIcon label="Abreu caso de estudo">
+                  <Flex justify="center" align="center" css={{ height: '100%' }}>
+                    <CaseStudyLogo variant="Abreu" height="42" />
+                  </Flex>
+                </AccessibleIcon>
+              </LogoLink>
+            </NextLink>
 
-            {/* <NextLink href="/casos-de-estudo/elcorteingles" passHref> */}
-            <LogoLink variant="box">
-              <AccessibleIcon label="El Corte Inglés caso de estudo">
-                <Flex justify="center" align="center" css={{ height: '100%' }}>
-                  <CaseStudyLogo variant="El Corte Inglés" height="42" />
-                </Flex>
-              </AccessibleIcon>
-            </LogoLink>
-            {/* </NextLink> */}
+            <NextLink href="/casos-de-estudo" passHref>
+              <LogoLink variant="box">
+                <AccessibleIcon label="El Corte Inglés caso de estudo">
+                  <Flex justify="center" align="center" css={{ height: '100%' }}>
+                    <CaseStudyLogo variant="El Corte Inglés" height="42" />
+                  </Flex>
+                </AccessibleIcon>
+              </LogoLink>
+            </NextLink>
 
-            {/* <NextLink href="/casos-de-estudo/campera" passHref> */}
-            <LogoLink variant="box">
-              <AccessibleIcon label="Campera caso de estudo">
-                <Flex justify="center" align="center" css={{ height: '100%' }}>
-                  <CaseStudyLogo variant="Campera" height="42" />
-                </Flex>
-              </AccessibleIcon>
-            </LogoLink>
+            <NextLink href="/casos-de-estudo" passHref>
+              <LogoLink variant="box">
+                <AccessibleIcon label="Campera caso de estudo">
+                  <Flex justify="center" align="center" css={{ height: '100%' }}>
+                    <CaseStudyLogo variant="Campera" height="42" />
+                  </Flex>
+                </AccessibleIcon>
+              </LogoLink>
+            </NextLink>
 
-            {/* </NextLink> */}
-            {/* <NextLink href="/casos-de-estudo/portoeditora" passHref> */}
-            <LogoLink variant="box">
-              <AccessibleIcon label="Porto Editora caso de estudo">
-                <Flex justify="center" align="center" css={{ height: '100%' }}>
-                  <CaseStudyLogo variant="Porto Editora" height="42" />
-                </Flex>
-              </AccessibleIcon>
-            </LogoLink>
-            {/* </NextLink> */}
+            <NextLink href="/casos-de-estudo" passHref>
+              <LogoLink variant="box">
+                <AccessibleIcon label="Porto Editora caso de estudo">
+                  <Flex justify="center" align="center" css={{ height: '100%' }}>
+                    <CaseStudyLogo variant="Porto Editora" height="42" />
+                  </Flex>
+                </AccessibleIcon>
+              </LogoLink>
+            </NextLink>
 
-            {/* <NextLink href="/casos-de-estudo/rubisenergia" passHref> */}
-            <LogoLink variant="box">
-              <AccessibleIcon label="Rubis Energia caso de estudo">
-                <Flex justify="center" align="center" css={{ height: '100%' }}>
-                  <CaseStudyLogo variant="Rubis Gas" height="50" />
-                </Flex>
-              </AccessibleIcon>
-            </LogoLink>
-            {/* </NextLink> */}
+            <NextLink href="/casos-de-estudo" passHref>
+              <LogoLink variant="box">
+                <AccessibleIcon label="Rubis Energia caso de estudo">
+                  <Flex justify="center" align="center" css={{ height: '100%' }}>
+                    <CaseStudyLogo variant="Rubis Gas" height="50" />
+                  </Flex>
+                </AccessibleIcon>
+              </LogoLink>
+            </NextLink>
 
             {/* <NextLink href="/casos-de-estudo/idealista" passHref>
               <LogoLink variant="box">
@@ -107,35 +107,35 @@ export default function CaseStudy() {
               </LogoLink>
             </NextLink> */}
 
-            {/* <NextLink href="/casos-de-estudo/manitou" passHref> */}
-            <LogoLink variant="box">
-              <AccessibleIcon label="Manitou caso de estudo">
-                <Flex justify="center" align="center" css={{ height: '100%' }}>
-                  <CaseStudyLogo variant="Manitou" height="28" />
-                </Flex>
-              </AccessibleIcon>
-            </LogoLink>
-            {/* </NextLink> */}
+            <NextLink href="/casos-de-estudo" passHref>
+              <LogoLink variant="box">
+                <AccessibleIcon label="Manitou caso de estudo">
+                  <Flex justify="center" align="center" css={{ height: '100%' }}>
+                    <CaseStudyLogo variant="Manitou" height="28" />
+                  </Flex>
+                </AccessibleIcon>
+              </LogoLink>
+            </NextLink>
 
-            {/* <NextLink href="/casos-de-estudo/ivocutelarias" passHref> */}
-            <LogoLink variant="box">
-              <AccessibleIcon label="Ivo Cutelarias caso de estudo">
-                <Flex justify="center" align="center" css={{ height: '100%' }}>
-                  <CaseStudyLogo variant="Ivo Cutelarias" height="50" />
-                </Flex>
-              </AccessibleIcon>
-            </LogoLink>
-            {/* </NextLink> */}
+            <NextLink href="/casos-de-estudo" passHref>
+              <LogoLink variant="box">
+                <AccessibleIcon label="Ivo Cutelarias caso de estudo">
+                  <Flex justify="center" align="center" css={{ height: '100%' }}>
+                    <CaseStudyLogo variant="Ivo Cutelarias" height="50" />
+                  </Flex>
+                </AccessibleIcon>
+              </LogoLink>
+            </NextLink>
 
-            {/* <NextLink href="/casos-de-estudo/porcel" passHref> */}
-            <LogoLink variant="box">
-              <AccessibleIcon label="Porcel caso de estudo">
-                <Flex justify="center" align="center" css={{ height: '100%' }}>
-                  <CaseStudyLogo variant="Porcel" height="28" />
-                </Flex>
-              </AccessibleIcon>
-            </LogoLink>
-            {/* </NextLink> */}
+            <NextLink href="/casos-de-estudo" passHref>
+              <LogoLink variant="box">
+                <AccessibleIcon label="Porcel caso de estudo">
+                  <Flex justify="center" align="center" css={{ height: '100%' }}>
+                    <CaseStudyLogo variant="Porcel" height="28" />
+                  </Flex>
+                </AccessibleIcon>
+              </LogoLink>
+            </NextLink>
           </Grid>
 
           <Separator size="2" css={{ mb: '$8', mx: 'auto' }} />

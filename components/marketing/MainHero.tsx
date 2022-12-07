@@ -357,7 +357,7 @@ export const MainHero = () => {
           >
             <CarouselSlide id="pesquisa">
               <FocusArea
-                aria-label="Dialog component demo"
+                // aria-label="Demo Análise e Pesquisa - Annna"
                 onKeyDown={onFocusAreaKeyDown}
                 onFocus={onFocusAreaFocus}
               >
@@ -416,7 +416,7 @@ export const MainHero = () => {
 
             <CarouselSlide id="estrategia">
               <FocusArea
-                aria-label="Radio group component demo"
+                // aria-label="Estratégia de Otimização - Annna"
                 onKeyDown={onFocusAreaKeyDown}
                 onFocus={onFocusAreaFocus}
               >
@@ -474,7 +474,7 @@ export const MainHero = () => {
 
             <CarouselSlide id="otimizacao">
               <FocusArea
-                aria-label="Slider component demo"
+                // aria-label="Otimização (in-page/off-page) demo - Annna"
                 onKeyDown={onFocusAreaKeyDown}
                 onFocus={onFocusAreaFocus}
               >
@@ -504,7 +504,7 @@ export const MainHero = () => {
 
             <CarouselSlide id="relatorio">
               <FocusArea
-                aria-label="Scroll area component demo"
+                // aria-label="Relatório demo - Annna"
                 onKeyDown={onFocusAreaKeyDown}
                 onFocus={onFocusAreaFocus}
               >
@@ -699,7 +699,7 @@ export const MainHero = () => {
               right: '15px',
             }}
           >
-            <CarouselNext aria-label="Show next demo" tabIndex={-1} as={CarouselArrowButton}>
+            <CarouselNext tabIndex={-1} as={CarouselArrowButton}>
               <ArrowRightIcon />
             </CarouselNext>
           </Box>

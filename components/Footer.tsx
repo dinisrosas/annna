@@ -32,7 +32,7 @@ export const Footer = () => {
             </BoxLink>
           </NextLink>
           <Text
-            as="h6"
+            as="p"
             size="2"
             css={{
               lineHeight: '20px',
@@ -50,7 +50,7 @@ export const Footer = () => {
           </Link>
         </Flex>
         <Box>
-          <Text as="h6" size="3" css={{ fontWeight: 500, lineHeight: '20px' }}>
+          <Text as="p" size="3" css={{ fontWeight: 500, lineHeight: '20px' }}>
             Processo
           </Text>
           <ul>
@@ -86,7 +86,7 @@ export const Footer = () => {
         </Box>
 
         <Box>
-          <Text as="h6" size="3" css={{ fontWeight: 500, lineHeight: '20px' }}>
+          <Text as="p" size="3" css={{ fontWeight: 500, lineHeight: '20px' }}>
             Sobre
           </Text>
           <ul>
@@ -162,7 +162,7 @@ export const Footer = () => {
           </Box>
         )} */}
         <Box>
-          <Text as="h6" size="3" css={{ fontWeight: 500, lineHeight: '20px' }}>
+          <Text as="p" size="3" css={{ fontWeight: 500, lineHeight: '20px' }}>
             Recursos
           </Text>
           <ul>
